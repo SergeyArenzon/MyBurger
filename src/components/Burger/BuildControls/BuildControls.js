@@ -21,6 +21,7 @@ const buildControls = (props) => (
                 added={props.ingredientAdded}
                 removed={props.ingredientRemoved}
                 type={ctrl.type}
+                disabled={props.disabled[ctrl.type]}
                 
                 
                 ></BuildControl>
