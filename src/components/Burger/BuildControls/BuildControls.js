@@ -13,9 +13,19 @@ const controls = [
 
 const buildControls = (props) => (
     <div className={classes.BuildControls}>
-        { controls.map(ctrl => ( 
-            <BuildControl key={ctrl.label} label={ctrl.label}></BuildControl>
-        )) }
+        { 
+            controls.map(ctrl => ( 
+                <BuildControl 
+                key={ctrl.label} 
+                label={ctrl.label} 
+                added={props.ingredientAdded}
+                removed={props.ingredientRemoved}
+                type={ctrl.type}
+                
+                
+                ></BuildControl>
+            )) 
+        }
     </div>
 );
 
