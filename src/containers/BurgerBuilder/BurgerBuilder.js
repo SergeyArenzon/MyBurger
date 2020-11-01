@@ -5,6 +5,9 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from './../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axios from '../../axios-orders';
+import mongoose from 'mongoose';
+
 
 
 
@@ -85,7 +88,26 @@ class BurgerBuilder extends Component {
         this.setState({purchasing: false})
     }
     purchaseContinueHandler = () => {
-        alert('you can continue');
+        // const order = {
+        //     ingredients : this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     address: {
+        //         street: 'teststreet',
+        //         zipCode: '123'
+        //     },
+        //     enail: 'test@gmail.com'
+        // }
+
+        const uri = "mongodb+srv://typhoonn:sergey91@myburger.rhayo.mongodb.net/myburgerDB?retryWrites=true&w=majority"
+        mongoose.connect(uri, {
+        useNewUrlParser: true
+        });
+
+        const connection = mongoose.connection;
+        
+        // axios.post('/orderss.json', order)
+        //     .then(response => console.log(response))
+        //     .catch(error => console.log(error))
     }
 
     render() {
