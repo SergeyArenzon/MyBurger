@@ -95,7 +95,7 @@ class BurgerBuilder extends Component {
                 street: 'teststreet',
                 zipCode: '123'
             },
-            enail: 'test22@gmail.com'
+            email: 'test22@gmail.com'
         }
         
             

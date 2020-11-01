@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 const orderSchema = new Schema({
-    ingredients : [],
+    ingredients : Object,
     price: Number,
     address: {
         street: String,
