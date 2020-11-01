@@ -98,10 +98,6 @@ class BurgerBuilder extends Component {
         //     enail: 'test@gmail.com'
         // }
 
-        const uri = "mongodb+srv://typhoonn:sergey91@myburger.rhayo.mongodb.net/myburgerDB?retryWrites=true&w=majority"
-        mongoose.connect(uri, {
-        useNewUrlParser: true
-        });
 
         const connection = mongoose.connection;
         

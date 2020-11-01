@@ -14,12 +14,16 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
+const exercisesRouter = require('./routes/exercises');
+const ordersRouter = require('./routes/orders');
 
-//
+app.use('/exrcises', exercisesRouter);
+app.use('/orders', ordersRouter);
+
 app.use(cors());          // Cors middlware
 app.use(express.json());  // Parsing json
-
 //
+
 app.listen(port, () => {
     console.log('Server is running on port: ' + port);
 });

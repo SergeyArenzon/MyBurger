@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const exerciseSchema = new Schema({
+const orderSchema = new Schema({
     ingredients : [],
     price: Number,
     address: {
@@ -13,6 +13,6 @@ const exerciseSchema = new Schema({
     email: String
 })
 
-const Exercise = mongoose.model('Exercise', exerciseSchema);
+const Order = mongoose.model('orders', orderSchema);
 
-module.exports = Exercise;
+module.exports = Order;
