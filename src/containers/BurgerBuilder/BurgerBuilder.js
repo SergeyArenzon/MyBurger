@@ -35,10 +35,13 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount () {
+
         axios.get('http://localhost:5000/ingredients')
-            .then(function (response) {
+            .then((response) => {
                 // handle success
-                console.log(response.data);
+                const currentIngredients = response.data;
+                
+                // this.setState({ingredients: currentIngredients})
             })
             .catch(function (error) {
                 // handle error

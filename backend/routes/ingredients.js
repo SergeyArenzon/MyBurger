@@ -6,18 +6,13 @@ let Ingredients = require('../models/ingredients.model');
 //                      //
 
 router.route('/').get((req, res) => {
-    let ingredients;
-
     let getIngredients = async function (){
-        ingredients = await Ingredients.findById({});
-        console.log(ingredients); // contains user object
+        let ingredients = await Ingredients.find({});
+        res.json(ingredients)
     }
 
-    console.log(ingredients)
+    getIngredients()
 
-
-    res.json({ingredients})
 })
-
 
 module.exports = router;
