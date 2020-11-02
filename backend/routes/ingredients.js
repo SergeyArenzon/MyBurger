@@ -8,9 +8,18 @@ let Ingredients = require('../models/ingredients.model');
 router.route('/').get((req, res) => {
     let getIngredients = async function (){
         let ingredients = await Ingredients.find({});
-        res.json(ingredients)
-    }
 
+        let fixedIngredients = {};
+        ingredients.map(ing => {
+            fixedIngredients[ing['name']] = ing['number'];
+        })
+
+        res.json(fixedIngredients)       
+        }
+        
+        
+
+        
     getIngredients()
 
 })
