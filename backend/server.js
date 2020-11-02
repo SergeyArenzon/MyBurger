@@ -14,7 +14,7 @@ app.use(express.json());  // Parsing json
 
 const uri = process.env.ATLAS_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true })
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true  })
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
@@ -24,6 +24,8 @@ connection.once('open', () => {
 const ordersRouter = require('./routes/orders');
 app.use('/orders', ordersRouter);
 
+const ingredientsRouter = require('./routes/ingredients');
+app.use('/ingredients', ingredientsRouter);
 
 app.listen(port, () => {
     console.log('Server is running on port: ' + port);
