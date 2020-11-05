@@ -1,3 +1,4 @@
+import { set } from 'mongoose';
 import React, { Component } from 'react';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 
@@ -19,6 +20,15 @@ class Checkout extends Component {
     continueHandler = () => {
         console.log(this.props)
         this.props.history.replace(this.props.location.pathname + "/contact-data");
+    }
+    componentDidMount () {
+        const query = new URLSearchParams(this.props.location.search);
+        const ingredients = {};
+        for(let params of query.entries()) {
+            ingredients[params[0]] = +params[1];
+        }
+        
+        this.setState({ingredients: ingredients})
     }
 
     render () {
