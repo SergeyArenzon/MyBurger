@@ -13,13 +13,21 @@ class Checkout extends Component {
         }
         
     }
-    componentDidMount () {
-        console.log(this.state)
+    cancleHandler = () => {
+        this.props.history.goBack();
     }
+    continueHandler = () => {
+        console.log(this.props)
+        this.props.history.replace(this.props.location.pathname + "/contact-data");
+    }
+
     render () {
         return(
             <div>
-                <CheckoutSummary ingredients={this.state.ingredients}/>
+                <CheckoutSummary 
+                ingredients={this.state.ingredients}
+                cancleClick={this.cancleHandler}
+                continueClick={this.continueHandler}/>
             </div>
         );
     }

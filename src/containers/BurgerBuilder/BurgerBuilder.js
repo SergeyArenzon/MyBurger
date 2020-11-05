@@ -8,6 +8,8 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import { Link, Route } from 'react-router-dom';
+import Checkout from '../Checkout/Checkout';
 
 
 const INGREDIENT_PRICES = {
@@ -97,28 +99,32 @@ class BurgerBuilder extends Component {
     purchaseContinueHandler = () => {
         this.setState({loading: true});
         
-
-        const order = {
-            ingredients : this.state.ingredients,
-            price: this.state.totalPrice,
-            address: {
-                street: 'teststreet',
-                zipCode: '123'
-            },
-            email: 'test22@gmail.com'
-        }
+        // 
+        //   push new order 
+        //
+        // const order = {
+        //     ingredients : this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     address: {
+        //         street: 'teststreet',
+        //         zipCode: '123'
+        //     },
+        //     email: 'test22@gmail.com'
+        // }
         
             
         
-        axios.post('http://localhost:5000/orders/add', order)
-            .then(response => {
-                this.setState({loading: false, purchasing: false});
-                console.log(response.data)
-            })
-            .catch(error => {
-                this.setState({loading: false, purchasing: false});
-                console.log(error)
-            })
+        // axios.post('http://localhost:5000/orders/add', order)
+        //     .then(response => {
+        //         this.setState({loading: false, purchasing: false});
+        //         console.log(response.data)
+        //     })
+        //     .catch(error => {
+        //         this.setState({loading: false, purchasing: false});
+        //         console.log(error)
+        //     })
+
+        this.props.history.push("/checkout");
     }
 
     
@@ -166,10 +172,9 @@ class BurgerBuilder extends Component {
                     modalClosed={this.purchaseCancleHandler}>
                         {orderSummary}
                 </Modal>
-
-                
                 {burger}
             </Aux>
+            
         );
     }
 }

@@ -2,8 +2,10 @@ import React from 'react';
 import Burger from '../../Burger/Burger';
 import Button from '../../../components/UI/Button/Button';
 import classes from './CheckoutSummary.module.css';
+import { withRouter } from 'react-router-dom';
 
 const checkoutSummary = (props) => {
+    
     return (
         <div className={classes.CheckoutSummary}>
             <h1>We hope it tastes well!</h1>
@@ -12,13 +14,13 @@ const checkoutSummary = (props) => {
             </div>
             <Button 
             btnType="Danger"
-            clicked>
+            clicked={props.cancleClick}>
                 CANCLE
             </Button>
             
             <Button 
             btnType="Success"
-            clicked>
+            clicked={props.continueClick}>
                 CONTINUE
             </Button>
         </div>
