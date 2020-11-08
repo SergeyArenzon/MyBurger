@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import Aux from '../../../hoc/Aux/Aux';
 import Button from '../../UI/Button/Button';
-import { Link } from 'react-router-dom';
+
 
 
 
@@ -13,6 +13,7 @@ class OrderSummary extends Component {
     }
     componentDidUpdate() {
         console.log('[OderSummary DidUpdate]')
+        
     }
 
     render () {

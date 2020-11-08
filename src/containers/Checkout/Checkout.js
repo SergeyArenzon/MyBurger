@@ -1,7 +1,8 @@
-import { set } from 'mongoose';
+
 import React, { Component } from 'react';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
-
+import { Route } from 'react-router-dom';
+import ContactData from '../Checkout/ContactData/ContactData';
 
 class Checkout extends Component {
     state = {
@@ -11,24 +12,36 @@ class Checkout extends Component {
             cheese: 1,
             bacon: 2,
             onion: 1
-        }
+        },
+        price: null
         
     }
     cancleHandler = () => {
         this.props.history.goBack();
     }
     continueHandler = () => {
-        console.log(this.props)
         this.props.history.replace(this.props.location.pathname + "/contact-data");
     }
+
+componentWillMount () {
+    console.log(this.props)
+}
+
     componentDidMount () {
         const query = new URLSearchParams(this.props.location.search);
         const ingredients = {};
+        let price = null;
         for(let params of query.entries()) {
-            ingredients[params[0]] = +params[1];
+            if(params[0] === 'price') {
+                price = params[1];
+            }
+            else {
+                ingredients[params[0]] = +params[1];
+            }
+            
         }
         
-        this.setState({ingredients: ingredients})
+        this.setState({ingredients: ingredients, price: price})
     }
 
     render () {
@@ -38,6 +51,7 @@ class Checkout extends Component {
                 ingredients={this.state.ingredients}
                 cancleClick={this.cancleHandler}
                 continueClick={this.continueHandler}/>
+                <Route path={this.props.match.path + '/contact-data'} render={ () => (<ContactData price={this.state.price} ingredients={this.state.ingredients}/>)}/>
             </div>
         );
     }
