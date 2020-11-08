@@ -13,8 +13,7 @@ class Checkout extends Component {
             bacon: 2,
             onion: 1
         },
-        price: null
-        
+        price: null,
     }
     cancleHandler = () => {
         this.props.history.goBack();
@@ -22,10 +21,6 @@ class Checkout extends Component {
     continueHandler = () => {
         this.props.history.replace(this.props.location.pathname + "/contact-data");
     }
-
-componentWillMount () {
-    console.log(this.props)
-}
 
     componentDidMount () {
         const query = new URLSearchParams(this.props.location.search);
@@ -51,7 +46,7 @@ componentWillMount () {
                 ingredients={this.state.ingredients}
                 cancleClick={this.cancleHandler}
                 continueClick={this.continueHandler}/>
-                <Route path={this.props.match.path + '/contact-data'} render={ () => (<ContactData price={this.state.price} ingredients={this.state.ingredients}/>)}/>
+                <Route path={this.props.match.path + '/contact-data'} render={ (props) => (<ContactData price={this.state.price} ingredients={this.state.ingredients} {...props}/>)}/>
             </div>
         );
     }
