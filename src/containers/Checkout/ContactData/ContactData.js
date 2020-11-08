@@ -4,6 +4,7 @@ import classes from './ContactData.module.css';
 import axios from 'axios';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 
+
 class ContactData extends Component {
     state = {
         name: '',
@@ -26,7 +27,7 @@ class ContactData extends Component {
         const price = this.props.price;
             
 
-
+        const orderSchema = orderSchema;
         //   push new order 
         
         const order = {
