@@ -25,6 +25,8 @@ class ContactData extends Component {
         const ingredients = this.props.ingredients;
         const price = this.props.price;
             
+
+
         //   push new order 
         
         const order = {
@@ -63,8 +65,8 @@ class ContactData extends Component {
                 <form>
                     <input className={classes.Input} type="text" name="name" placeholder="Your Name" onChange={(event) => this.setState({name: event.target.value})} />
                     <input className={classes.Input} type="email" name="email" placeholder="Your Email" onChange={(event) => this.setState({email: event.target.value})}/>
-                    <input className={classes.Input} type="text" name="street" placeholder="Street" onChange={(event) => this.setState({address: {street: event.target.value}})}/>
-                    <input className={classes.Input} type="text" name="postal" placeholder="Postal" onChange={(event) => this.setState({address: {postalCode: event.target.value}})}/>
+                    <input className={classes.Input} type="text" name="street" placeholder="Street" onChange={(event) => this.setState({address: {street: event.target.value, postalCode: this.state.address.postalCode}})}/>
+                    <input className={classes.Input} type="text" name="postal" placeholder="Postal" onChange={(event) => this.setState({address: {postalCode: event.target.value, street: this.state.address.street}})}/>
                     <Button 
                     btnType="Success"
                     clicked={this.orderHandler}>
