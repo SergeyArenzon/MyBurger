@@ -1,7 +1,7 @@
 .Orders ul {
-    list-style: none;
-    width: 70%;
-    text-align: center;
-
-    margin: auto;
+  list-style: none;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+  padding: 0;
 }
