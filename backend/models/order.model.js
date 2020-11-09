@@ -5,13 +5,9 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
     ingredients : Object,
-    name: String,
+    orderData: Object,
     price: Number,
-    address: {
-        street: String,
-        zipCode: String
-    },
-    email: String
+    
 })
 
 const Order = mongoose.model('orders', orderSchema);
