@@ -1,31 +1,38 @@
-import React from 'react';
-import classes from './Order.module.css';
-
+import React from "react";
+import classes from "./Order.module.css";
 
 const order = (props) => {
+  const ingredients = [];
+  for (let ingredientName in props.ingredients) {
+    ingredients.push({
+      name: ingredientName,
+      amount: props.ingredients[ingredientName],
+    });
+  }
 
-    const ingredients = [];
-    
+  const ingredientOutput = ingredients.map((ig) => {
+    return (
+      <span
+        key={ig.name}
+        style={{
+          textTransform: "capitalize",
+          display: "inline",
+          margin: "0 8px",
+          border: "1px solid #ccc",
+          padding: "5px",
+        }}
+      >
+        {ig.name} ({ig.amount})
+      </span>
+    );
+  });
 
-    
-    Object.keys(props.ingredients).forEach(function(ingKey) {
-        ingredients.push(ingKey + '(' + props.ingredients[ingKey] + ')' );
-      });
-
-    const street = props.address[0];
-    const postalCode = props.address[1];
-
-    const name = props.name;
-    const price = props.price;
-    const email = props.email;
-
-    return(  
-        <div className={classes.Order}>
-            <p>Ingredients: {ingredients}</p>
-            <p>price:{price}</p>
-        </div>
-        );
-  
+  return (
+    <div className={classes.Order}>
+      <p>Ingredients: {ingredientOutput}</p>
+      <p>price:{props.price}</p>
+    </div>
+  );
 };
 
 export default order;
