@@ -49,7 +49,7 @@ class ContactData extends Component {
                 valid: false,
                 touched: false
             },
-            countery: {
+            country: {
                 elementType: "input",
                 elementConfig: {
                     type: "text",
@@ -90,11 +90,12 @@ class ContactData extends Component {
                     minLength: 5,
                     maxLength: 5,
                 },
-                valid: false,
+                valid: true,
                 touched: false
             },
         },
         loading: false,
+        formIsValid: false
     };
     componentDidMount() {
         console.log("[ContactData componentDidMount]");
@@ -102,6 +103,7 @@ class ContactData extends Component {
     componentDidUpdate() {
         console.log("[ContactData componentDidUpdate]");
     }
+
     orderHandler = (event) => {
         event.preventDefault();
         this.setState({ loading: true });
@@ -167,8 +169,16 @@ class ContactData extends Component {
         );
         updatedOrderForm[inputIdentifier] = updatedFormElement;
         updatedFormElement.touched = true;
-        console.log(updatedFormElement )
-        this.setState({ orderForm: updatedOrderForm });
+        
+        let formIsValid = true;
+
+        for(let key in updatedOrderForm) {
+            formIsValid = updatedOrderForm[key].valid && formIsValid
+        }
+
+        console.log(updatedFormElement)
+
+        this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
     };
     render() {
         const formElementsArray = [];
@@ -196,7 +206,8 @@ class ContactData extends Component {
                         />
                     );
                 })}
-                <Button btnType="Success">ORDER</Button>
+                
+                <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
             </form>
         );
 
