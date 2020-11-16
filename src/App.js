@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+    
         <div>
           <Layout>
             <Switch>
@@ -18,7 +18,7 @@ class App extends Component {
             </Switch>
           </Layout>
         </div>
-      </BrowserRouter>
+      
     );
   }
 }
