@@ -12,9 +12,16 @@ const controls = [
 
 ];
 
-const buildControls = (props) => (
-    <div className={classes.BuildControls}>
-        <div>Price: <strong>{props.price.toFixed(2)}</strong></div>
+const buildControls = (props) => {
+
+    let fixedPrice = props.price.toFixed(2) ;
+    if(fixedPrice < 0) {
+        fixedPrice = 0
+    }
+
+    return(
+        <div className={classes.BuildControls}>
+        <div>Price: <strong>{fixedPrice}</strong></div>
         { 
             controls.map(ctrl => ( 
                 <BuildControl 
@@ -34,7 +41,11 @@ const buildControls = (props) => (
             Order Now!
         </button >  
     </div>
+    );
     
-);
+}
+
+    
+
 
 export default buildControls;
