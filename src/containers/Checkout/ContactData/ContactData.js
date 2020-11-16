@@ -189,30 +189,41 @@ class ContactData extends Component {
                 config: this.state.orderForm[key],
             });
         }
+        let form = null;
 
-        let form = (
-            <form onSubmit={this.orderHandler}>
-                {formElementsArray.map((formElement) => {
-                    return (
-                        <Input
-                            key={formElement.id}
-                            elementType={formElement.config.elementType}
-                            elementConfig={formElement.config.elementConfig}
-                            value={formElement.value}
-                            invalid={!formElement.config.valid}
-                            changed={(event) =>
-                                this.inputChangedHandle(event, formElement.id)
-                            }
-                            touched={formElement.config.touched}
-                        />
-                    );
-                })}
+        if (this.state.loading) {
+            form = <Spinner />;
+        } else {
+            form = (
+                <form onSubmit={this.orderHandler}>
+                    {formElementsArray.map((formElement) => {
+                        return (
+                            <Input
+                                key={formElement.id}
+                                elementType={formElement.config.elementType}
+                                elementConfig={formElement.config.elementConfig}
+                                value={formElement.value}
+                                invalid={!formElement.config.valid}
+                                changed={(event) =>
+                                    this.inputChangedHandle(
+                                        event,
+                                        formElement.id
+                                    )
+                                }
+                                touched={formElement.config.touched}
+                            />
+                        );
+                    })}
 
-                <Button btnType="Success" disabled={!this.state.formIsValid}>
-                    ORDER
-                </Button>
-            </form>
-        );
+                    <Button
+                        btnType="Success"
+                        disabled={!this.state.formIsValid}
+                    >
+                        ORDER
+                    </Button>
+                </form>
+            );
+        }
 
         return <div className={classes.ContactData}>{form}</div>;
     }
