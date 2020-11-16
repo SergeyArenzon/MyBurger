@@ -18,7 +18,7 @@ const buildControls = (props) => {
     if(fixedPrice < 0) {
         fixedPrice = 0
     }
-
+        
     return(
         <div className={classes.BuildControls}>
         <div>Price: <strong>{fixedPrice}</strong></div>

@@ -4,6 +4,7 @@ import classes from "./ContactData.module.css";
 import axios from "axios";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
+import { connect } from "react-redux";
 
 class ContactData extends Component {
     state = {
@@ -19,7 +20,7 @@ class ContactData extends Component {
                     required: true,
                 },
                 valid: false,
-                touched: false
+                touched: false,
             },
             street: {
                 elementType: "input",
@@ -32,7 +33,7 @@ class ContactData extends Component {
                     required: true,
                 },
                 valid: false,
-                touched: false
+                touched: false,
             },
             zipCode: {
                 elementType: "input",
@@ -47,7 +48,7 @@ class ContactData extends Component {
                     maxLength: 5,
                 },
                 valid: false,
-                touched: false
+                touched: false,
             },
             country: {
                 elementType: "input",
@@ -60,7 +61,7 @@ class ContactData extends Component {
                     required: true,
                 },
                 valid: false,
-                touched: false
+                touched: false,
             },
             email: {
                 elementType: "input",
@@ -73,7 +74,7 @@ class ContactData extends Component {
                     required: true,
                 },
                 valid: false,
-                touched: false
+                touched: false,
             },
             deliveryMethod: {
                 elementType: "select",
@@ -84,14 +85,14 @@ class ContactData extends Component {
                     ],
                     placeholder: "ZIP Code",
                 },
-                validation: {required: false},
+                validation: { required: false },
                 value: "fastest",
                 valid: true,
-                touched: false
+                touched: false,
             },
         },
         loading: false,
-        formIsValid: false
+        formIsValid: false,
     };
     componentDidMount() {
         console.log("[ContactData componentDidMount]");
@@ -111,7 +112,7 @@ class ContactData extends Component {
             ].value;
         }
 
-        const ingredients = this.props.ingredients;
+        const ingredients = this.props.ings;
         const price = this.props.price;
 
         //   push new order
@@ -147,7 +148,7 @@ class ContactData extends Component {
         if (rules.maxLength) {
             isValid = value.length <= rules.maxLength && isValid;
         }
-        console.log(value)
+        console.log(value);
         return isValid;
     };
 
@@ -166,16 +167,19 @@ class ContactData extends Component {
         );
         updatedOrderForm[inputIdentifier] = updatedFormElement;
         updatedFormElement.touched = true;
-        
+
         let formIsValid = true;
 
-        for(let key in updatedOrderForm) {
-            formIsValid = updatedOrderForm[key].valid && formIsValid
+        for (let key in updatedOrderForm) {
+            formIsValid = updatedOrderForm[key].valid && formIsValid;
         }
 
-        console.log(updatedFormElement)
+        console.log(updatedFormElement);
 
-        this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
+        this.setState({
+            orderForm: updatedOrderForm,
+            formIsValid: formIsValid,
+        });
     };
     render() {
         const formElementsArray = [];
@@ -203,8 +207,10 @@ class ContactData extends Component {
                         />
                     );
                 })}
-                
-                <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
+
+                <Button btnType="Success" disabled={!this.state.formIsValid}>
+                    ORDER
+                </Button>
             </form>
         );
 
@@ -212,4 +218,11 @@ class ContactData extends Component {
     }
 }
 
-export default ContactData;
+const mapStateToProps = (state) => {
+    return {
+        ings: state.ingredients,
+        price: state.totalPrice,
+    };
+};
+
+export default connect(mapStateToProps)(ContactData);
