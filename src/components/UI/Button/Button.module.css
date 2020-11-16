@@ -25,4 +25,5 @@
 
 button:disabled {
     color: #ccc;
+    cursor: not-allowed;
 }

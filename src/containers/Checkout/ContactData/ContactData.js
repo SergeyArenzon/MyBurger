@@ -84,12 +84,8 @@ class ContactData extends Component {
                     ],
                     placeholder: "ZIP Code",
                 },
-                value: "",
-                validation: {
-                    required: true,
-                    minLength: 5,
-                    maxLength: 5,
-                },
+                validation: {required: false},
+                value: "fastest",
                 valid: true,
                 touched: false
             },
@@ -151,6 +147,7 @@ class ContactData extends Component {
         if (rules.maxLength) {
             isValid = value.length <= rules.maxLength && isValid;
         }
+        console.log(value)
         return isValid;
     };
 
