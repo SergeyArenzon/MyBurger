@@ -6,7 +6,6 @@ import BuildControls from "./../../components/Burger/BuildControls/BuildControls
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import axios from "axios";
-import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import { connect } from "react-redux";
 import * as burgerBuilderActions from "../../store/actions/index";
@@ -19,6 +18,7 @@ class BurgerBuilder extends Component {
     };
 
     componentDidMount() {
+        this.props.onInitIngredients();
         // axios
         //   .get("http://localhost:5000/ingredients")
         //   .then((response) => {
@@ -103,7 +103,7 @@ class BurgerBuilder extends Component {
         }
 
         let orderSummary = null;
-        let burger = <Spinner />;
+        let burger = this.props.error ? <p>Ingredients cant be loaded</p> : null;
         if (this.props.ings !== null) {
             burger = (
                 <Aux>
@@ -130,9 +130,9 @@ class BurgerBuilder extends Component {
                 ></OrderSummary>
             );
         }
-        if (this.state.loading) {
-            orderSummary = <Spinner />;
-        }
+        // if (this.props.error) {
+        //     orderSummary = <Spinner />;
+        // }
 
         return (
             <Aux>
@@ -152,6 +152,7 @@ const mapToStateProps = (state) => {
     return {
         ings: state.ingredients,
         price: state.totalPrice,
+        error: state.error
     };
 };
 
@@ -161,6 +162,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(burgerBuilderActions.addIngredient(ingName)),
         onIngredientRemoved: (ingName) =>
             dispatch(burgerBuilderActions.removeIngredient(ingName)),
+        onInitIngredients: () =>
+            dispatch(burgerBuilderActions.initIngredients()),
     };
 };
 
