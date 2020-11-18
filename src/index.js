@@ -6,11 +6,11 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import reducer from "./store/reducer";
+import burgerBuilderReducer from "./store/reducers/burgerBuilder";
 
 const reduxDevToolExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(reducer, reduxDevToolExtension);
+const store = createStore(burgerBuilderReducer, reduxDevToolExtension);
 
 const app = (
     <Provider store={store}>
