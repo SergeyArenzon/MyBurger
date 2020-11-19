@@ -19,9 +19,23 @@ export const purchaseBurgerFail = (error) => {
 }
 
 
-export const purchaseBurgerStart = (orderData) => {
+export const purchaseBurgerStart = () => {
+    return {
+        type: actionTypes.PURCHASE_BURGER_START
+    }
+}
+
+export const purchaseBurger = (orderData) => {
     return dispatch => {
-        axios.post('/orders.')
+        dispatch(purchaseBurgerStart());
+        axios
+        .post("http://localhost:5000/orders/add", orderData)
+        .then((response) => {
+            dispatch(purchaseBurgerSuccess(response.data, orderData ))
+        })
+        .catch((error) => {
+            dispatch(purchaseBurgerFail(error))
+        })
     }
 
 } 
