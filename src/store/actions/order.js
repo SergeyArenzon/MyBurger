@@ -36,8 +36,45 @@ export const purchaseBurger = (orderData) => {
     };
 };
 
+
 export const purchaseInit = () => {
     return {
-        type: actionTypes.PURCHASE_INIT
-    }
-}
+        type: actionTypes.PURCHASE_INIT,
+    };
+};
+
+export const fetchOrderSuccess = (orders) => {
+    return {
+        type: actionTypes.FETCH_ORDERS_SUCCESS,
+        orders: orders,
+    };
+};
+
+export const fetchOrderFail = (error) => {
+    return {
+        type: actionTypes.FETCH_ORDERS_FAIL,
+        error: error,
+    };
+};
+
+export const fetchOrderStart = () => {
+    return {
+        type: actionTypes.FETCH_ORDERS_START,
+    };
+};
+
+export const fetchOrders = () => {
+    return (dispatch) => {
+        dispatch(fetchOrderStart())
+        axios
+            .get("http://localhost:5000/orders")
+            .then((res) => {
+                console.log(res);
+                dispatch(fetchOrderSuccess(res.data));
+            })
+            .catch((err) => {
+                console.log(err);
+                dispatch(fetchOrderFail(err));
+            });
+    };
+};
