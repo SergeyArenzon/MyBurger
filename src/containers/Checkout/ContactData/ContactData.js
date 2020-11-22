@@ -126,18 +126,7 @@ class ContactData extends Component {
 
         console.log(order);
         this.props.onOrderBurger(order);
-        this.props.history.push("/");
-
-        // axios
-        //     .post("http://localhost:5000/orders/add", order)
-        //     .then((response) => {
-        //         this.setState({ loading: false, purchasing: false });
-        //         this.props.history.push("/");
-        //     })
-        //     .catch((error) => {
-        //         this.setState({ loading: false, purchasing: false });
-        //         console.log(error);
-        //     });
+        // this.props.history.push("/");
     };
 
     checkVaildity = (value, rules) => {
