@@ -6,7 +6,7 @@ const input = (props) => {
 
     const inputClasses = [classes.InputElement];
     // console.log("props.invalid", props.invalid);
-    console.log(props.invalid, props.touched)
+    // console.log(props.invalid, props.touched)
     if (props.invalid && props.touched) {
         inputClasses.push(classes.Invalid);
     }
@@ -60,7 +60,7 @@ const input = (props) => {
             );
     }
 
-    console.log(inputClasses)
+
 
     return (
         <div style={{ marginBottom: "8px" }}>
