@@ -16,51 +16,65 @@ const INGREDIENT_PRICES = {
 };
 
 const reducer = (state = initialState, action) => {
+    const addIngredients = (state, action) => {
+        const updatedIngredient = {
+            [action.ingredientName]:
+                state.ingredients[action.ingredientName] + 1,
+        };
+        const updatedIngredients = updateObject(
+            state.ingredients,
+            updatedIngredient
+        );
+        const updatedState = {
+            ingredients: updatedIngredients,
+            totalPrice:
+                state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+        };
+        return updateObject(state, updatedState);
+    };
+
+    const removeIngredient = (state, action) => {
+        const updatedIngredient2 = {
+            [action.ingredientName]:
+                state.ingredients[action.ingredientName] - 1,
+        };
+        const updatedIngredients2 = updateObject(
+            state.ingredients,
+            updatedIngredient2
+        );
+        const updatedState2 = {
+            ingredients: updatedIngredients2,
+            totalPrice:
+                state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
+        };
+        return updateObject(state, updatedState2);
+    };
+
+    const setIngredients = (state, action) => {
+        const updatedState3 = updateObject(state, {
+            ingredients: action.ingredients,
+            error: false,
+            totalPrice: 0,
+        });
+        return updatedState3;
+    };
+
+    const fetchIngredientsFailed = (state, action) => {
+        const updatedState4 = updateObject(state, { error: true });
+        return updatedState4;
+    }
     switch (action.type) {
         case actionTypes.ADD_INGREDIENTS:
-            const updatedIngredient = {
-                [action.ingredientName]:
-                    state.ingredients[action.ingredientName] + 1,
-            };
-            const updatedIngredients = updateObject(
-                state.ingredients,
-                updatedIngredient
-            );
-            const updatedState = {
-                ingredients: updatedIngredients,
-                totalPrice:
-                    state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
-            };
-            return updateObject(state, updatedState);
+            return addIngredients(state, action);
 
-            
         case actionTypes.REMOVE_INGREDIENTS:
-            const updatedIngredient2 = {
-                [action.ingredientName]:
-                    state.ingredients[action.ingredientName] - 1,
-            };
-            const updatedIngredients2 = updateObject(
-                state.ingredients,
-                updatedIngredient2
-            );
-            const updatedState2 = {
-                ingredients: updatedIngredients2,
-                totalPrice:
-                    state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
-            };
-            return updateObject(state, updatedState2);
+            return removeIngredient(state, action);
 
         case actionTypes.SET_INGREDIENTS:
-            const updatedState3 = updateObject(state, {
-                ingredients: action.ingredients,
-                error: false,
-                totalPrice: 0,
-            });
-            return updatedState3;
-           
+            return setIngredients(state, action);
+
         case actionTypes.FETCH_INGREDIENTS_FAILED:
-            const updatedState4 = updateObject(state, {error: true});
-            return updatedState4;
+            return fetchIngredientsFailed(state, action);
         default:
             return state;
     }
