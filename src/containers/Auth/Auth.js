@@ -111,13 +111,14 @@ class Auth extends Component {
         if (this.props.loading) {
             form = <Spinner />;
         }
-        let errorMessage = "error";
+        let errorMessage = null;
         if (this.props.error) {
             errorMessage = <p>{this.props.error.data.error.message}</p>;
             
         }
         return (
             <div className={classes.Auth}>
+                {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <Button btnType={"Success"}>SUBMIT</Button>
@@ -126,7 +127,7 @@ class Auth extends Component {
                 <Button btnType="Danger" clicked={this.switchAuthModeHandler}>
                     SWITCH TO {this.state.isSignup ? "SIGNIN" : "SIGNUP"}
                 </Button>
-                <p>{errorMessage}</p>
+                
             </div>
         );
     }

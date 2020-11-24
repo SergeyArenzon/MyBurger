@@ -8,7 +8,6 @@ export const authStart = () => {
 };
 
 export const authSuccess = (idToken, userId) => {
-    console.log(idToken)
     return {
         type: actionTypes.AUTH_SUCCESS,
         token: idToken,

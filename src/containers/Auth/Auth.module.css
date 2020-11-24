@@ -17,3 +17,8 @@
         width: 500px;
     }
 }
+
+p {
+    color: red;
+    font-weight: bold;
+}
