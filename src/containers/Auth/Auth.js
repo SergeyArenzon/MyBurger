@@ -85,6 +85,7 @@ class Auth extends Component {
             return { isSignup: !prevState.isSignup };
         });
     };
+
     render() {
         const formElementsArray = [];
         for (let key in this.state.controls) {
@@ -144,6 +145,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onAuth: (email, password, isSignup) =>
             dispatch(actions.auth(email, password, isSignup)),
+        
     };
 };
 
