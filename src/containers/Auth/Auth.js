@@ -4,7 +4,7 @@ import Button from "../../components/UI/Button/Button";
 import classes from "./Auth.module.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
-import Spinner from '../../components/UI/Spinner/Spinner';
+import Spinner from "../../components/UI/Spinner/Spinner";
 class Auth extends Component {
     state = {
         controls: {
@@ -94,7 +94,7 @@ class Auth extends Component {
             });
         }
 
-        const form = formElementsArray.map((formElement) => (
+        let form = formElementsArray.map((formElement) => (
             <Input
                 key={formElement.id}
                 elementType={formElement.config.elementType}
@@ -108,18 +108,25 @@ class Auth extends Component {
                 }
             />
         ));
-                if(this.props.loading) {
-                    form = <Spinner/>
-                }
+        if (this.props.loading) {
+            form = <Spinner />;
+        }
+        let errorMessage = "error";
+        if (this.props.error) {
+            errorMessage = <p>{this.props.error.data.error.message}</p>;
+            
+        }
         return (
             <div className={classes.Auth}>
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <Button btnType={"Success"}>SUBMIT</Button>
                 </form>
+
                 <Button btnType="Danger" clicked={this.switchAuthModeHandler}>
                     SWITCH TO {this.state.isSignup ? "SIGNUP" : "SIGNIN"}
                 </Button>
+                <p>{errorMessage}</p>
             </div>
         );
     }
@@ -128,6 +135,7 @@ class Auth extends Component {
 const mapStateToProps = (state) => {
     return {
         loading: state.auth.loading,
+        error: state.auth.error,
     };
 };
 
