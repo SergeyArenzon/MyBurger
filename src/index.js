@@ -11,6 +11,8 @@ import thunk from "redux-thunk";
 import orderReducer from "./store/reducers/order";
 import authReducer from './store/reducers/auth';
 import errorReducer from './store/reducers/error';
+import { loadUser } from "./store/actions/auth";
+
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -65,3 +65,40 @@
 //             });
 //     };
 // };
+
+import * as actionTypes from "./actionTypes";
+import axios from "axios";
+import { returnErrors } from "./error";
+
+// Check token & load user
+export const loadUser = () => (dispatch, getState) => {
+    // User loading
+    dispatch({ type: actionTypes.USER_LOADING });
+
+    // Get token from loaclStorage
+    const token = getState().auth.token;
+
+    // Header
+
+    const config = {
+        headers: {
+            "Content-type": "application/json",
+        },
+    };
+    if (token) {
+        config.headers["x-auth-token"] = token;
+    }
+
+    axios
+        .get("http://localhost:5000/auth/user", config)
+        .then((res) =>
+            dispatch({
+                type: actionTypes.USER_LOADED,
+                payload: res.data,
+            })
+        )
+        .catch((err) => {
+            dispatch(returnErrors(err.response.data, err.respone.status))
+            dispatch({ type: actionTypes.AUTH_ERROR });
+        });
+};

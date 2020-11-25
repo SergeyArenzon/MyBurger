@@ -6,8 +6,9 @@ import Checkout from "./containers/Checkout/Checkout";
 import Orders from "./containers/Orders/Orders";
 import { Route, Switch } from "react-router-dom";
 import Auth from "./containers/Auth/Auth";
-
 class App extends Component {
+    componentDidMount() {}
+        store
     render() {
         return (
             <div>
