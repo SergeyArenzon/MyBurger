@@ -109,14 +109,14 @@ class Auth extends Component {
                 }
             />
         ));
-        if (this.props.loading) {
-            form = <Spinner />;
-        }
+        // if (this.props.loading) {
+        //     form = <Spinner />;
+        // }
         let errorMessage = null;
-        if (this.props.error) {
-            errorMessage = <p>{this.props.error.data.error.message}</p>;
+        // if (this.props.error) {
+        //     errorMessage = <p>{this.props.error.data.error.message}</p>;
             
-        }
+        // }
         return (
             <div className={classes.Auth}>
                 {errorMessage}
@@ -134,19 +134,6 @@ class Auth extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        loading: state.auth.loading,
-        error: state.auth.error,
-    };
-};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onAuth: (email, password, isSignup) =>
-            dispatch(actions.auth(email, password, isSignup)),
-        
-    };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default Auth;

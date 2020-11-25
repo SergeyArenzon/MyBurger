@@ -1,12 +1,13 @@
-// @route api/auth
-// @desc Auth user
-
 const router = require("express").Router();
 let User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const auth = require("../middleware/auth");
 
 require("dotenv").config();
+
+// @route POST api/auth
+// @desc Auth user
 
 router.route("/").post((req, res) => {
     const { email, password } = req.body;
@@ -52,6 +53,16 @@ router.route("/").post((req, res) => {
             );
         });
     });
+});
+
+// @route GET api/auth/user
+// @desc Get user data
+// @access Private
+
+router.get("/user", auth, (req, res) => {
+    User.findById(req.user.id)
+        .select("-password")
+        .then((user) => res.json(user));
 });
 
 module.exports = router;
