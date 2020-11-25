@@ -5,7 +5,6 @@ let User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-require("dotenv").config();
 
 router.route("/add").post((req, res) => {
     const { email, password } = req.body;
