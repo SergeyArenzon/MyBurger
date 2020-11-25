@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+
 require('dotenv').config();
 
 const app = express();
@@ -29,6 +30,9 @@ app.use('/ingredients', ingredientsRouter);
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
+const authRouter = require('./routes/auth');
+app.use('/auth', authRouter);
 
 app.listen(port, () => {
     console.log('Server is running on port: ' + port);

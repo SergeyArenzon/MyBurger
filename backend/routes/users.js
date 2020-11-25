@@ -3,6 +3,9 @@
 const router = require("express").Router();
 let User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+require("dotenv").config();
 
 router.route("/add").post((req, res) => {
     const { email, password } = req.body;
@@ -27,14 +30,29 @@ router.route("/add").post((req, res) => {
                     if (err) {
                         throw err;
                     }
+
+                    const jwtSecretKey = process.env.JWT_SECRET;
                     newUser.password = hash;
                     newUser.save().then((user) => {
-                        res.json({
-                            user: {
+                        jwt.sign(
+                            {
                                 id: user.id,
-                                email: user.email,
                             },
-                        });
+                            jwtSecretKey,
+                            { expiresIn: 3600 },
+                            (err, token) => {
+                                if (err) {
+                                    throw err;
+                                }
+                                res.json({
+                                    token,
+                                    user: {
+                                        id: user.id,
+                                        email: user.email,
+                                    },
+                                });
+                            }
+                        );
                     });
                 });
             });
