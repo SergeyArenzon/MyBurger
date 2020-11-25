@@ -91,14 +91,17 @@ export const loadUser = () => (dispatch, getState) => {
 
     axios
         .get("http://localhost:5000/auth/user", config)
-        .then((res) =>
+        .then((res) => {
             dispatch({
                 type: actionTypes.USER_LOADED,
                 payload: res.data,
-            })
-        )
+            });
+        })
         .catch((err) => {
-            dispatch(returnErrors(err.response.data, err.respone.status))
+            console.log('--------------------')
+            console.log(err)
+            console.log("--------------------");
+            dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({ type: actionTypes.AUTH_ERROR });
         });
 };

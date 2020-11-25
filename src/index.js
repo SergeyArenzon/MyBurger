@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -9,26 +9,24 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import burgerBuilderReducer from "./store/reducers/burgerBuilder";
 import thunk from "redux-thunk";
 import orderReducer from "./store/reducers/order";
-import authReducer from './store/reducers/auth';
-import errorReducer from './store/reducers/error';
-import { loadUser } from "./store/actions/auth";
-
-
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import authReducer from "./store/reducers/auth";
+import errorReducer from "./store/reducers/error";
+// import { loadUser } from "./store/actions/auth";
 
 const rootReducer = combineReducers({
     burgerBuilder: burgerBuilderReducer,
     order: orderReducer,
     auth: authReducer,
-    error: errorReducer 
+    error: errorReducer,
 });
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
 
 const app = (
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <App store={store} />
         </BrowserRouter>
     </Provider>
 );

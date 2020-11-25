@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
+import loadUser from '../actions/auth';
 
 export const addIngredient = (name) => {
     return {
@@ -34,6 +35,7 @@ export const initIngredients = () => {
             .get("http://localhost:5000/ingredients")
             .then((response) => {
                 dispatch(setIngredients(response.data));
+                // dispatch(loadUser())
             })
             .catch(function (error) {
                 dispatch(fetchIngredientsFailed());
