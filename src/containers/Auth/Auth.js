@@ -9,6 +9,20 @@ import { register } from "../../store/actions/auth";
 class Auth extends Component {
     state = {
         controls: {
+            name: {
+                elementType: "input",
+                elementConfig: {
+                    type: "text",
+                    placeholder: "Full Name",
+                },
+                value: "",
+                validation: {
+                    required: true,
+                    minLength: 1,
+                },
+                valid: false,
+                touched: false,
+            },
             email: {
                 elementType: "input",
                 elementConfig: {
@@ -77,7 +91,7 @@ class Auth extends Component {
 
         const registrationInfo = {
 
-            name: "x",
+            name: this.state.controls.name.value,
             email: this.state.controls.email.value,
             password: this.state.controls.password.value,
         }
