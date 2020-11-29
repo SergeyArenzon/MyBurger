@@ -70,9 +70,41 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { returnErrors } from "./error";
 
-export const register = ({ name = "some name", email, password }) => (
-    dispatch
-) => {
+
+export const login = ({ email, password }) => (dispatch) => {
+    console.log('-------------------')
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+
+    const body = JSON.stringify({email, password });
+    axios
+        .post("http://localhost:5000/auth", body, config)
+        .then((res) =>
+            dispatch({
+                type: actionTypes.LOGIN_SUCCESS,
+                payload: res.data,
+            })
+        )
+        .catch((err) => {
+            dispatch(
+                returnErrors(
+                    err.response.data,
+                    err.response.status,
+                    "LOGIN_FAIL"
+                )
+            );
+            dispatch({
+                type: actionTypes.LOGIN_FAIL,
+            });
+        });
+};
+
+
+
+export const register = ({ name, email, password }) => (dispatch) => {
     const config = {
         headers: {
             "Content-Type": "application/json",
@@ -102,15 +134,11 @@ export const register = ({ name = "some name", email, password }) => (
         });
 };
 
-
 export const logout = () => {
     return {
-        type: actionTypes.LOGOUT_SUCCESS
-    }
-
-}
-
-
+        type: actionTypes.LOGOUT_SUCCESS,
+    };
+};
 
 // Check token & load user
 export const loadUser = () => (dispatch, getState) => {

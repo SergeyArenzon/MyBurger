@@ -5,7 +5,7 @@ import classes from "./Auth.module.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import { register, logout } from "../../store/actions/auth";
+import { register, logout, login } from "../../store/actions/auth";
 import { Redirect } from "react-router-dom";
 
 class Auth extends Component {
@@ -108,13 +108,20 @@ class Auth extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-
-        const registrationInfo = {
-            name: this.state.controls.name.value,
-            email: this.state.controls.email.value,
-            password: this.state.controls.password.value,
-        };
-        this.props.onRegisterSubmit(registrationInfo);
+        if (this.state.signupMode) {
+            const registrationInfo = {
+                name: this.state.controls.name.value,
+                email: this.state.controls.email.value,
+                password: this.state.controls.password.value,
+            };
+            this.props.onRegisterSubmit(registrationInfo);
+        } else if (!this.state.signupMode) {
+            const loginInfo = {
+                email: this.state.controls.email.value,
+                password: this.state.controls.password.value,
+            };
+            this.props.onLoginSubmit(loginInfo);
+        }
     };
 
     switchAuthModeHandler = () => {
@@ -133,13 +140,6 @@ class Auth extends Component {
         }
 
         let form = formElementsArray.map((formElement) => {
-            console.log(
-                formElement.id +
-                    "     " +
-                    !this.state.signupMode +
-                    "   " +
-                    !(formElement.id === "name")
-            );
             if (this.state.signupMode || !(formElement.id === "name")) {
                 return (
                     <Input
@@ -196,6 +196,7 @@ const mapDispatchToProps = (dispatch) => {
         onRegisterSubmit: (registrationInfo) =>
             dispatch(register(registrationInfo)),
         onLogoutSubmit: () => dispatch(logout()),
+        onLoginSubmit: (loginInfo) => dispatch(login(loginInfo)),
     };
 };
 
