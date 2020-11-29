@@ -10,7 +10,7 @@ import { Redirect } from "react-router-dom";
 
 class Auth extends Component {
     state = {
-        singUp: true,
+        signupMode: false,
         error: "",
         controls: {
             name: {
@@ -58,14 +58,13 @@ class Auth extends Component {
         },
     };
 
-
     componentDidMount() {
         // Check if Logout pressed
-        if(this.props.isAuthenticated){
+        if (this.props.isAuthenticated) {
             this.props.onLogoutSubmit();
         }
     }
-    
+
     componentDidUpdate(prevProps) {
         if (prevProps.error !== this.props.error) {
             if (this.props.error.id === "REGISTER_FAIL") {
@@ -120,7 +119,7 @@ class Auth extends Component {
 
     switchAuthModeHandler = () => {
         this.setState((prevState) => {
-            return { singUp: !prevState.singUp };
+            return { signupMode: !prevState.signupMode };
         });
     };
 
@@ -133,20 +132,32 @@ class Auth extends Component {
             });
         }
 
-        let form = formElementsArray.map((formElement) => (
-            <Input
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
-                invalid={!formElement.config.valid}
-                shouldValidate={formElement.config.validation}
-                touched={formElement.config.touched}
-                changed={(event) =>
-                    this.inputChangedHandler(event, formElement.id)
-                }
-            />
-        ));
+        let form = formElementsArray.map((formElement) => {
+            console.log(
+                formElement.id +
+                    "     " +
+                    !this.state.signupMode +
+                    "   " +
+                    !(formElement.id === "name")
+            );
+            if (this.state.signupMode || !(formElement.id === "name")) {
+                return (
+                    <Input
+                        key={formElement.id}
+                        elementType={formElement.config.elementType}
+                        elementConfig={formElement.config.elementConfig}
+                        value={formElement.config.value}
+                        invalid={!formElement.config.valid}
+                        shouldValidate={formElement.config.validation}
+                        touched={formElement.config.touched}
+                        changed={(event) =>
+                            this.inputChangedHandler(event, formElement.id)
+                        }
+                    />
+                );
+            }
+        });
+
         // if (this.props.loading) {
         //     form = <Spinner />;
         // }
@@ -154,11 +165,11 @@ class Auth extends Component {
         if (this.state.error) {
             errorMessage = <p>{this.state.error.msg.msg}</p>;
         }
-     
+
         return (
             <div className={classes.Auth}>
                 {/* Redirect when successfull register */}
-                {this.props.isAuthenticated ? <Redirect to='/'/> : null}
+                {this.props.isAuthenticated ? <Redirect to="/" /> : null}
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {form}
@@ -166,7 +177,7 @@ class Auth extends Component {
                 </form>
 
                 <Button btnType="Danger" clicked={this.switchAuthModeHandler}>
-                    SWITCH TO {this.state.singUp ? "SIGNIN" : "SIGNUP"}
+                    SWITCH TO {this.state.signupMode ? "SIGNIN" : "SIGNUP"}
                 </Button>
             </div>
         );
@@ -184,7 +195,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onRegisterSubmit: (registrationInfo) =>
             dispatch(register(registrationInfo)),
-        onLogoutSubmit: () => dispatch(logout())    
+        onLogoutSubmit: () => dispatch(logout()),
     };
 };
 
