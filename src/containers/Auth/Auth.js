@@ -73,6 +73,14 @@ class Auth extends Component {
                 this.setState({ error: null });
             }
         }
+        if (prevProps.error !== this.props.error) {
+            if (this.props.error.id === "LOGIN_FAIL") {
+                this.setState({ error: this.props.error });
+            } else {
+                this.setState({ error: null });
+            }
+        }
+        
     }
 
     checkVaildity = (value, rules) => {
