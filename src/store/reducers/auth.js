@@ -47,6 +47,7 @@
 // export default reducer;
 
 import * as actionsType from "../actions/actionTypes";
+import {Redirect} from 'react-router-dom';
 
 const initialState = {
     token: localStorage.getItem("token"),
@@ -71,7 +72,7 @@ const reducer = (state = initialState, action) => {
             };
         case actionsType.LOGIN_SUCCESS:
         case actionsType.REGISTER_SUCCESS:
-            localStorage.setItem('token', action.payload.token);
+            localStorage.setItem('token', action.payload.token);            
             return {
                 ...state,
                 ...action.payload,

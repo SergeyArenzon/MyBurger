@@ -6,9 +6,11 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { register } from "../../store/actions/auth";
+import { Redirect } from "react-router-dom";
 
 class Auth extends Component {
     state = {
+        singUp: true,
         error: "",
         controls: {
             name: {
@@ -54,19 +56,16 @@ class Auth extends Component {
                 touched: false,
             },
         },
-        isSignup: true,
     };
 
     componentDidUpdate(prevProps) {
         if (prevProps.error !== this.props.error) {
             if (this.props.error.id === "REGISTER_FAIL") {
                 this.setState({ error: this.props.error });
-            }
-            else {
+            } else {
                 this.setState({ error: null });
             }
         }
-
     }
 
     checkVaildity = (value, rules) => {
@@ -113,7 +112,7 @@ class Auth extends Component {
 
     switchAuthModeHandler = () => {
         this.setState((prevState) => {
-            return { isSignup: !prevState.isSignup };
+            return { singUp: !prevState.singUp };
         });
     };
 
@@ -147,8 +146,10 @@ class Auth extends Component {
         if (this.state.error) {
             errorMessage = <p>{this.state.error.msg.msg}</p>;
         }
+     
         return (
             <div className={classes.Auth}>
+                {this.props.isAuthenticated ? <Redirect to='/'/> : null}
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {form}
@@ -156,7 +157,7 @@ class Auth extends Component {
                 </form>
 
                 <Button btnType="Danger" clicked={this.switchAuthModeHandler}>
-                    {/* SWITCH TO {this.state.isSignup ? "SIGNIN" : "SIGNUP"} */}
+                    SWITCH TO {this.state.singUp ? "SIGNIN" : "SIGNUP"}
                 </Button>
             </div>
         );
