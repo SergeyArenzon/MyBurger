@@ -72,7 +72,7 @@ import { returnErrors } from "./error";
 
 
 export const login = ({ email, password }) => (dispatch) => {
-    console.log('-------------------')
+
     const config = {
         headers: {
             "Content-Type": "application/json",
@@ -146,7 +146,7 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: actionTypes.USER_LOADING });
 
     axios
-        .get("http://localhost:5000/auth/user", tokenConfig)
+        .get("http://localhost:5000/auth/user", tokenConfig(getState))
         .then((res) => {
             dispatch({
                 type: actionTypes.USER_LOADED,
@@ -164,7 +164,9 @@ export const loadUser = () => (dispatch, getState) => {
 export const tokenConfig = (getState) => {
     // Get token from loaclStorage
     const token = getState().auth.token;
-
+    console.log('////////////////')
+    console.log(token)
+    console.log('////////////////')
     // Header
 
     const config = {
