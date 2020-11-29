@@ -102,6 +102,16 @@ export const register = ({ name = "some name", email, password }) => (
         });
 };
 
+
+export const logout = () => {
+    return {
+        type: actionTypes.LOGOUT_SUCCESS
+    }
+
+}
+
+
+
 // Check token & load user
 export const loadUser = () => (dispatch, getState) => {
     // User loading

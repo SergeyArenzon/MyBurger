@@ -5,7 +5,7 @@ import classes from "./Auth.module.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import { register } from "../../store/actions/auth";
+import { register, logout } from "../../store/actions/auth";
 import { Redirect } from "react-router-dom";
 
 class Auth extends Component {
@@ -58,6 +58,14 @@ class Auth extends Component {
         },
     };
 
+
+    componentDidMount() {
+        // Check if Logout pressed
+        if(this.props.isAuthenticated){
+            this.props.onLogoutSubmit();
+        }
+    }
+    
     componentDidUpdate(prevProps) {
         if (prevProps.error !== this.props.error) {
             if (this.props.error.id === "REGISTER_FAIL") {
@@ -176,6 +184,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onRegisterSubmit: (registrationInfo) =>
             dispatch(register(registrationInfo)),
+        onLogoutSubmit: () => dispatch(logout())    
     };
 };
 
