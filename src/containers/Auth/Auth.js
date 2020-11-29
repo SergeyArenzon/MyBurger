@@ -149,6 +149,7 @@ class Auth extends Component {
      
         return (
             <div className={classes.Auth}>
+                {/* Redirect when successfull register */}
                 {this.props.isAuthenticated ? <Redirect to='/'/> : null}
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
