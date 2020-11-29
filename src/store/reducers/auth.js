@@ -71,6 +71,7 @@ const reducer = (state = initialState, action) => {
             };
         case actionsType.LOGIN_SUCCESS:
         case actionsType.REGISTER_SUCCESS:
+            localStorage.setItem('token', action.payload.token);
             return {
                 ...state,
                 ...action.payload,

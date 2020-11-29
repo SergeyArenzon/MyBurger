@@ -84,9 +84,6 @@ export const loadUser = () => (dispatch, getState) => {
             });
         })
         .catch((err) => {
-            console.log("--------------------");
-            console.log(err);
-            console.log("--------------------");
             dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({ type: actionTypes.AUTH_ERROR });
         });

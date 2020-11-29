@@ -5,7 +5,6 @@ function auth(req, res, next) {
 
     // Check for token
     if (!token) {
-        console.log("-----------------------------------------------------------------------")
         return res.status(401).json({ msg: "No token, authorizaztion denied" });
     }
 
