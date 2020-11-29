@@ -20,7 +20,8 @@ const checkoutSummary = (props) => {
             
             <Button 
             btnType="Success"
-            clicked={props.continueClick}>
+            clicked={props.continueClick}
+            disabled={props.hide}>
                 CONTINUE
             </Button>
         </div>

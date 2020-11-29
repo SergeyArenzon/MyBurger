@@ -8,13 +8,17 @@ import * as actions from '../../store/actions/index';
 
 class Checkout extends Component {
 
-
+    state = {
+        contactIsLoaded: false
+    }
     cancleHandler = () => {
         this.props.history.goBack();
     };
     continueHandler = () => {
+        this.setState({contactIsLoaded: true});
         this.props.history.replace(
             this.props.location.pathname + "/contact-data"
+            
         );
     };
 
@@ -30,6 +34,7 @@ class Checkout extends Component {
                         ingredients={this.props.ings}
                         cancleClick={this.cancleHandler}
                         continueClick={this.continueHandler}
+                        hide={this.state.contactIsLoaded}
                     />
                     <Route
                         path={this.props.match.path + "/contact-data"}
