@@ -65,7 +65,6 @@ class Auth extends Component {
             else {
                 this.setState({ error: null });
             }
-            }
         }
 
     }
