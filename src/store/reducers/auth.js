@@ -47,7 +47,6 @@
 // export default reducer;
 
 import * as actionsType from "../actions/actionTypes";
-import {Redirect} from 'react-router-dom';
 
 const initialState = {
     token: localStorage.getItem("token"),

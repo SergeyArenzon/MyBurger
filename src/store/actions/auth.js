@@ -70,16 +70,14 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { returnErrors } from "./error";
 
-
 export const login = ({ email, password }) => (dispatch) => {
-
     const config = {
         headers: {
             "Content-Type": "application/json",
         },
     };
 
-    const body = JSON.stringify({email, password });
+    const body = JSON.stringify({ email, password });
     axios
         .post("http://localhost:5000/auth", body, config)
         .then((res) =>
@@ -101,8 +99,6 @@ export const login = ({ email, password }) => (dispatch) => {
             });
         });
 };
-
-
 
 export const register = ({ name, email, password }) => (dispatch) => {
     const config = {
@@ -164,9 +160,9 @@ export const loadUser = () => (dispatch, getState) => {
 export const tokenConfig = (getState) => {
     // Get token from loaclStorage
     const token = getState().auth.token;
-    console.log('////////////////')
-    console.log(token)
-    console.log('////////////////')
+    console.log("////////////////");
+    console.log(token);
+    console.log("////////////////");
     // Header
 
     const config = {

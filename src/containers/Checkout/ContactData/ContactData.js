@@ -7,6 +7,8 @@ import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../../store/actions/index';
+import Authentication from '../../Auth/Auth';
+
 
 class ContactData extends Component {
     state = {
@@ -185,7 +187,11 @@ class ContactData extends Component {
 
         if (this.props.loading) {
             form = <Spinner />;
-        } else {
+        }
+        else if (!this.props.auth.isAuthenticated){
+            form = <Authentication/>
+        }
+        else {
             form = (
                 <form onSubmit={this.orderHandler}>
                     {formElementsArray.map((formElement) => {
@@ -217,7 +223,9 @@ class ContactData extends Component {
             );
         }
 
-        return <div className={classes.ContactData}>{form}</div>;
+        return <div className={classes.ContactData}>
+            {form}
+        </div>;
     }
 }
 
@@ -225,7 +233,8 @@ const mapStateToProps = (state) => {
     return {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
-        loading: state.order.loading
+        loading: state.order.loading,
+        auth: state.auth
     };
 };
 
