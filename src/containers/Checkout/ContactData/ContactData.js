@@ -5,10 +5,9 @@ import axios from "axios";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
-import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
-import * as actions from '../../../store/actions/index';
-import Authentication from '../../Auth/Auth';
-
+import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler";
+import * as actions from "../../../store/actions/index";
+import Authentication from "../../Auth/Auth";
 
 class ContactData extends Component {
     state = {
@@ -106,7 +105,6 @@ class ContactData extends Component {
 
     orderHandler = (event) => {
         event.preventDefault();
-        // this.setState({ loading: true });
 
         const formData = {};
         for (let formElementIdentifier in this.state.orderForm) {
@@ -121,6 +119,7 @@ class ContactData extends Component {
         //   push new order
 
         const order = {
+            userId: this.props.auth.user._id,
             ingredients: ingredients,
             price: price.toFixed(2),
             orderData: formData,
@@ -187,11 +186,9 @@ class ContactData extends Component {
 
         if (this.props.loading) {
             form = <Spinner />;
-        }
-        else if (!this.props.auth.isAuthenticated){
-            form = <Authentication/>
-        }
-        else {
+        } else if (!this.props.auth.isAuthenticated) {
+            form = <Authentication />;
+        } else {
             form = (
                 <form onSubmit={this.orderHandler}>
                     {formElementsArray.map((formElement) => {
@@ -223,9 +220,7 @@ class ContactData extends Component {
             );
         }
 
-        return <div className={classes.ContactData}>
-            {form}
-        </div>;
+        return <div className={classes.ContactData}>{form}</div>;
     }
 }
 
@@ -234,16 +229,15 @@ const mapStateToProps = (state) => {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
         loading: state.order.loading,
-        auth: state.auth
+        auth: state.auth,
     };
 };
 
-
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
-
-    }
-}
+        onOrderBurger: (orderData) =>
+            dispatch(actions.purchaseBurger(orderData)),
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactData);

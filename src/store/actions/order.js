@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
+import { tokenConfig } from "./auth";
 
 export const purchaseBurgerSuccess = (id, orderData) => {
     return {
@@ -23,10 +24,11 @@ export const purchaseBurgerStart = () => {
 };
 
 export const purchaseBurger = (orderData) => {
-    return (dispatch) => {
+    console.log(orderData)
+    return (dispatch, getState) => {
         dispatch(purchaseBurgerStart());
         axios
-            .post("http://localhost:5000/orders/add", orderData)
+            .post("http://localhost:5000/orders/add", orderData, tokenConfig(getState))
             .then((response) => {
                 dispatch(purchaseBurgerSuccess(response.data.name, orderData));
             })
@@ -35,7 +37,6 @@ export const purchaseBurger = (orderData) => {
             });
     };
 };
-
 
 export const purchaseInit = () => {
     return {
@@ -65,7 +66,7 @@ export const fetchOrderStart = () => {
 
 export const fetchOrders = () => {
     return (dispatch) => {
-        dispatch(fetchOrderStart())
+        dispatch(fetchOrderStart());
         axios
             .get("http://localhost:5000/orders")
             .then((res) => {

@@ -111,6 +111,7 @@ export const register = ({ name, email, password }) => (dispatch) => {
     axios
         .post("http://localhost:5000/users/add", body, config)
         .then((res) =>
+        
             dispatch({
                 type: actionTypes.REGISTER_SUCCESS,
                 payload: res.data,
@@ -160,9 +161,7 @@ export const loadUser = () => (dispatch, getState) => {
 export const tokenConfig = (getState) => {
     // Get token from loaclStorage
     const token = getState().auth.token;
-    console.log("////////////////");
-    console.log(token);
-    console.log("////////////////");
+  
     // Header
 
     const config = {
