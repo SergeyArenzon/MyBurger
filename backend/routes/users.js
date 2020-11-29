@@ -1,4 +1,4 @@
-// @ route POST api/
+// @ route POST api/users
 
 const router = require("express").Router();
 let User = require("../models/user.model");

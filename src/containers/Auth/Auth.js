@@ -5,6 +5,7 @@ import classes from "./Auth.module.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import { register } from "../../store/actions/auth";
 class Auth extends Component {
     state = {
         controls: {
@@ -71,20 +72,23 @@ class Auth extends Component {
         this.setState({ controls: updatedControls });
     };
 
-    // submitHandler = (event) => {
-    //     event.preventDefault();
-    //     this.props.onAuth(
-    //         this.state.controls.email.value,
-    //         this.state.controls.password.value,
-    //         this.state.isSignup
-    //     );
-    // };
+    submitHandler = (event) => {
+        event.preventDefault();
 
-    // switchAuthModeHandler = () => {
-    //     this.setState((prevState) => {
-    //         return { isSignup: !prevState.isSignup };
-    //     });
-    // };
+        const registrationInfo = {
+
+            name: "x",
+            email: this.state.controls.email.value,
+            password: this.state.controls.password.value,
+        }
+        this.props.onRegisterSubmit(registrationInfo);
+    };
+
+    switchAuthModeHandler = () => {
+        this.setState((prevState) => {
+            return { isSignup: !prevState.isSignup };
+        });
+    };
 
     render() {
         const formElementsArray = [];
@@ -115,7 +119,7 @@ class Auth extends Component {
         let errorMessage = null;
         // if (this.props.error) {
         //     errorMessage = <p>{this.props.error.data.error.message}</p>;
-            
+
         // }
         return (
             <div className={classes.Auth}>
@@ -128,12 +132,15 @@ class Auth extends Component {
                 <Button btnType="Danger" clicked={this.switchAuthModeHandler}>
                     {/* SWITCH TO {this.state.isSignup ? "SIGNIN" : "SIGNUP"} */}
                 </Button>
-                
             </div>
         );
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onRegisterSubmit: (registrationInfo) => dispatch(register(registrationInfo))
+    };
+};
 
-
-export default Auth;
+export default connect(null, mapDispatchToProps)(Auth);

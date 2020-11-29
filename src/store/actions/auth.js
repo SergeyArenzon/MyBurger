@@ -70,6 +70,38 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { returnErrors } from "./error";
 
+export const register = ({ name = "some name", email, password }) => (
+    dispatch
+) => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+
+    const body = JSON.stringify({ name, email, password });
+    axios
+        .post("http://localhost:5000/users/add", body, config)
+        .then((res) =>
+            dispatch({
+                type: actionTypes.REGISTER_SUCCESS,
+                payload: res.data,
+            })
+        )
+        .catch((err) => {
+            dispatch(
+                returnErrors(
+                    err.response.data,
+                    err.response.status,
+                    "REGISTER_FAIL"
+                )
+            );
+            dispatch({
+                type: actionTypes.REGISTER_FAIL,
+            });
+        });
+};
+
 // Check token & load user
 export const loadUser = () => (dispatch, getState) => {
     // User loading
