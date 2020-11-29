@@ -6,8 +6,10 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { register } from "../../store/actions/auth";
+
 class Auth extends Component {
     state = {
+        error: "",
         controls: {
             name: {
                 elementType: "input",
@@ -55,6 +57,19 @@ class Auth extends Component {
         isSignup: true,
     };
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.error !== this.props.error) {
+            if (this.props.error.id === "REGISTER_FAIL") {
+                this.setState({ error: this.props.error });
+            }
+            else {
+                this.setState({ error: null });
+            }
+            }
+        }
+
+    }
+
     checkVaildity = (value, rules) => {
         let isValid = true;
         if (rules.required) {
@@ -90,11 +105,10 @@ class Auth extends Component {
         event.preventDefault();
 
         const registrationInfo = {
-
             name: this.state.controls.name.value,
             email: this.state.controls.email.value,
             password: this.state.controls.password.value,
-        }
+        };
         this.props.onRegisterSubmit(registrationInfo);
     };
 
@@ -131,10 +145,9 @@ class Auth extends Component {
         //     form = <Spinner />;
         // }
         let errorMessage = null;
-        // if (this.props.error) {
-        //     errorMessage = <p>{this.props.error.data.error.message}</p>;
-
-        // }
+        if (this.state.error) {
+            errorMessage = <p>{this.state.error.msg.msg}</p>;
+        }
         return (
             <div className={classes.Auth}>
                 {errorMessage}
@@ -151,10 +164,18 @@ class Auth extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
     return {
-        onRegisterSubmit: (registrationInfo) => dispatch(register(registrationInfo))
+        isAuthenticated: state.auth.isAuthenticated,
+        error: state.error,
     };
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onRegisterSubmit: (registrationInfo) =>
+            dispatch(register(registrationInfo)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
