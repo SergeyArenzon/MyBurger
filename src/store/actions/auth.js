@@ -71,12 +71,13 @@ import axios from "axios";
 import { returnErrors } from "./error";
 
 export const login = ({ email, password }) => (dispatch) => {
+    dispatch({ type: actionTypes.USER_LOADING });
     const config = {
         headers: {
             "Content-Type": "application/json",
         },
     };
-    dispatch({type: actionTypes.USER_LOADING})
+
     const body = JSON.stringify({ email, password });
     axios
         .post("http://localhost:5000/auth", body, config)
@@ -108,6 +109,8 @@ export const login = ({ email, password }) => (dispatch) => {
 };
 
 export const register = ({ name, email, password }) => (dispatch) => {
+    dispatch({ type: actionTypes.USER_LOADING });
+
     const config = {
         headers: {
             "Content-Type": "application/json",
