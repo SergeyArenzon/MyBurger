@@ -18,7 +18,7 @@
     }
 }
 
-p {
+.Auth p {
     color: red;
     font-weight: bold;
 }
