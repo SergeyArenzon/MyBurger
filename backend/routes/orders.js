@@ -21,15 +21,17 @@ router.post("/add", auth, (req, res) => {
         .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/").get((req, res) => {
+router.get("/", (req, res) => {
+    console.log(req.query)
     Order.find({}, (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(result);
+            // console.log(result);
             res.json(result);
         }
     });
 });
+
 
 module.exports = router;

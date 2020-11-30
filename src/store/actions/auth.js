@@ -80,12 +80,19 @@ export const login = ({ email, password }) => (dispatch) => {
     const body = JSON.stringify({ email, password });
     axios
         .post("http://localhost:5000/auth", body, config)
-        .then((res) =>
+        .then((res) => {
+            const fixedData = {
+                ...res.data,
+                user: { _id: res.data.user.id },
+            };
+
+            delete fixedData["user[id]"];
+
             dispatch({
                 type: actionTypes.LOGIN_SUCCESS,
-                payload: res.data,
-            })
-        )
+                payload: fixedData,
+            });
+        })
         .catch((err) => {
             dispatch(
                 returnErrors(
@@ -111,7 +118,6 @@ export const register = ({ name, email, password }) => (dispatch) => {
     axios
         .post("http://localhost:5000/users/add", body, config)
         .then((res) =>
-        
             dispatch({
                 type: actionTypes.REGISTER_SUCCESS,
                 payload: res.data,
@@ -161,7 +167,7 @@ export const loadUser = () => (dispatch, getState) => {
 export const tokenConfig = (getState) => {
     // Get token from loaclStorage
     const token = getState().auth.token;
-  
+
     // Header
 
     const config = {
