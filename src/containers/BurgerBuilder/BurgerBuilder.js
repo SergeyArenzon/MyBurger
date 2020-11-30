@@ -18,8 +18,8 @@ class BurgerBuilder extends Component {
     };
 
     componentDidMount() {
-        if(!this.props.ings) {
-
+        // check for redirection to "/" init ingredients bug
+        if (!this.props.ings) {
             this.props.onInitIngredients();
         }
     }
@@ -49,7 +49,9 @@ class BurgerBuilder extends Component {
         }
 
         let orderSummary = null;
-        let burger = this.props.error ? <p>Ingredients cant be loaded</p> : null;
+        let burger = this.props.error ? (
+            <p>Ingredients cant be loaded</p>
+        ) : null;
         if (this.props.ings !== null) {
             burger = (
                 <Aux>
@@ -98,7 +100,7 @@ const mapToStateProps = (state) => {
     return {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
-        error: state.burgerBuilder.error
+        error: state.burgerBuilder.error,
     };
 };
 
@@ -108,13 +110,9 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actions.addIngredient(ingName)),
         onIngredientRemoved: (ingName) =>
             dispatch(actions.removeIngredient(ingName)),
-        onInitIngredients: () =>
-            dispatch(actions.initIngredients()),
-        onInitPurchase: () => dispatch(actions.purchaseInit())
+        onInitIngredients: () => dispatch(actions.initIngredients()),
+        onInitPurchase: () => dispatch(actions.purchaseInit()),
     };
 };
 
-export default connect(
-    mapToStateProps,
-    mapDispatchToProps
-)(BurgerBuilder);
+export default connect(mapToStateProps, mapDispatchToProps)(BurgerBuilder);

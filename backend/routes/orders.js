@@ -21,12 +21,10 @@ router.post("/add", auth, (req, res) => {
         .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.get("/", (req, res) => {
+router.get("/", auth, (req, res) => {
     const userId = req.query.userId;
-    console.log(userId)
 
-
-    Order.find({userId: userId}, (err, result) => {
+    Order.find({ userId: userId }, (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -35,6 +33,5 @@ router.get("/", (req, res) => {
         }
     });
 });
-
-
+ 
 module.exports = router;
