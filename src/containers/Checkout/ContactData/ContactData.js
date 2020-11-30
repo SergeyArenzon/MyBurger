@@ -185,6 +185,7 @@ class ContactData extends Component {
         let form = null;
 
         if (this.props.loading) {
+            console.log('---------------spinner-------------------')
             form = <Spinner />;
         } else if (!this.props.auth.isAuthenticated) {
             form = <Authentication />;
