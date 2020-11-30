@@ -22,11 +22,11 @@ router.post("/add", auth, (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    console.log(req.query);
-    console.log("------------------------");
+    const userId = req.query.userId;
+    console.log(userId)
 
 
-    Order.find({}, (err, result) => {
+    Order.find({userId: userId}, (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -35,5 +35,6 @@ router.get("/", (req, res) => {
         }
     });
 });
+
 
 module.exports = router;
