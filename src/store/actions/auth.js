@@ -76,7 +76,7 @@ export const login = ({ email, password }) => (dispatch) => {
             "Content-Type": "application/json",
         },
     };
-
+    dispatch({type: actionTypes.USER_LOADING})
     const body = JSON.stringify({ email, password });
     axios
         .post("http://localhost:5000/auth", body, config)

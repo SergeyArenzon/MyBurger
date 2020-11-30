@@ -166,9 +166,9 @@ class Auth extends Component {
             }
         });
 
-        // if (this.props.loading) {
-        //     form = <Spinner />;
-        // }
+        if (this.props.isLoading) {
+            form = <Spinner />;
+        }
         let errorMessage = null;
         if (this.state.error) {
             errorMessage = <p>{this.state.error.msg.msg}</p>;
@@ -196,6 +196,7 @@ const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         error: state.error,
+        isLoading: state.auth.isLoading
     };
 };
 
