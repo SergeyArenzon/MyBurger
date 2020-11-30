@@ -3,7 +3,6 @@ import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
 import classes from "./Auth.module.css";
 import { connect } from "react-redux";
-import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { register, logout, login } from "../../store/actions/auth";
 import { Redirect } from "react-router-dom";
@@ -80,7 +79,6 @@ class Auth extends Component {
                 this.setState({ error: null });
             }
         }
-        
     }
 
     checkVaildity = (value, rules) => {
@@ -164,6 +162,7 @@ class Auth extends Component {
                     />
                 );
             }
+            return null;
         });
 
         if (this.props.isLoading) {
@@ -196,7 +195,7 @@ const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         error: state.error,
-        isLoading: state.auth.isLoading
+        isLoading: state.auth.isLoading,
     };
 };
 

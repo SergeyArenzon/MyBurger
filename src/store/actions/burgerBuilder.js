@@ -1,6 +1,5 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
-import loadUser from '../actions/auth';
 
 export const addIngredient = (name) => {
     return {
