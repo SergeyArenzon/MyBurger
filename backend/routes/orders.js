@@ -22,16 +22,18 @@ router.post("/add", auth, (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    console.log(req.query)
+    console.log(req.query);
+    console.log("------------------------");
+
+
     Order.find({}, (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            // console.log(result);
+            console.log(result);
             res.json(result);
         }
     });
 });
-
 
 module.exports = router;

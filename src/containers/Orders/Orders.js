@@ -6,14 +6,15 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/order";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Auth from "../Auth/Auth";
+import { Redirect } from "react-router-dom";
 class Orders extends Component {
     state = {
         orders: [],
+        updated: false,
     };
 
     componentDidMount() {
-        if(this.props.auth.isAuthenticated){
-
+        if (this.props.auth.isAuthenticated) {
             this.props.onFetchOrders();
         }
     }
@@ -43,7 +44,10 @@ class Orders extends Component {
                 );
             }
         } else {
+            // orders = <Redirect to='/auth' />;
             orders = <Auth />;
+            
+
         }
 
         return <div>{orders}</div>;
