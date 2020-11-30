@@ -12,7 +12,10 @@ class Orders extends Component {
     };
 
     componentDidMount() {
-        this.props.onFetchOrders();
+        if(this.props.auth.isAuthenticated){
+
+            this.props.onFetchOrders();
+        }
     }
 
     render() {
