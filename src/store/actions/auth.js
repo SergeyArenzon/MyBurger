@@ -152,7 +152,7 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: actionTypes.USER_LOADING });
 
     axios
-        .get("http://localhost:5000/auth/user", tokenConfig(getState))
+        .get("https://dashboard.heroku.com/auth/user", tokenConfig(getState))
         .then((res) => {
             dispatch({
                 type: actionTypes.USER_LOADED,

@@ -10,8 +10,7 @@ import { loadUser } from "./store/actions/auth";
 
 class App extends Component {
     componentDidMount() {
-        // this.props.store.dispatch(loadUser());
-        // console.log(this.props.store)
+        this.props.store.dispatch(loadUser());
     }
 
     render() {
