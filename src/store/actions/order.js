@@ -29,7 +29,7 @@ export const purchaseBurger = (orderData) => {
         dispatch(purchaseBurgerStart());
         axios
             .post(
-                "/orders/add",
+                "http://localhost:5000/orders/add",
                 orderData,
                 tokenConfig(getState)
             )
@@ -74,7 +74,7 @@ export const fetchOrders = () => {
         dispatch(fetchOrderStart());
         const userId = getState().auth.user._id;
         axios
-            .get("/orders", { params: { userId: userId } })
+            .get("http://localhost:5000/orders", { params: { userId: userId } })
             .then((res) => {
                 console.log(res);
                 dispatch(fetchOrderSuccess(res.data));

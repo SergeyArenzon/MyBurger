@@ -80,7 +80,7 @@ export const login = ({ email, password }) => (dispatch) => {
 
     const body = JSON.stringify({ email, password });
     axios
-        .post("/auth", body, config)
+        .post("http://localhost:5000/auth", body, config)
         .then((res) => {
             const fixedData = {
                 ...res.data,
@@ -152,7 +152,7 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: actionTypes.USER_LOADING });
 
     axios
-        .get("/auth/user", tokenConfig(getState))
+        .get("http://localhost:5000/auth/user", tokenConfig(getState))
         .then((res) => {
             dispatch({
                 type: actionTypes.USER_LOADED,
