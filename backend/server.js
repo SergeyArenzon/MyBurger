@@ -28,7 +28,8 @@ const port = process.env.PORT || 5000;
 ////////////////// Mongoose Configurations //////////////////
 /////////////////////////////////////////////////////////////
 
-const uri = process.env.ATLAS_URI
+const uri = 'mongodb+srv://typhoonn:sergey91@myburger.rhayo.mongodb.net/myburgerDB?retryWrites=true&w=majority'
+// process.env.ATLAS_URI
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
