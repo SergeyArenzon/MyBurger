@@ -31,7 +31,7 @@ export const fetchIngredientsFailed = () => {
 export const initIngredients = () => {
     return (dispatch) => {
         axios
-            .get("/ingredients")
+            .get("http://localhost:5000/ingredients")
             .then((response) => {
                 dispatch(setIngredients(response.data));
                 // dispatch(loadUser())
