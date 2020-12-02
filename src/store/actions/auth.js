@@ -80,7 +80,7 @@ export const login = ({ email, password }) => (dispatch) => {
 
     const body = JSON.stringify({ email, password });
     axios
-        .post("HEROKU_URI/auth", body, config)
+        .post("/auth", body, config)
         .then((res) => {
             const fixedData = {
                 ...res.data,
@@ -152,7 +152,7 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: actionTypes.USER_LOADING });
 
     axios
-        .get("HEROKU_URI/auth/user", tokenConfig(getState))
+        .get("/auth/user", tokenConfig(getState))
         .then((res) => {
             dispatch({
                 type: actionTypes.USER_LOADED,

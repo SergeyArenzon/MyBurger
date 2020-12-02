@@ -31,7 +31,7 @@ export const fetchIngredientsFailed = () => {
 export const initIngredients = () => {
     return (dispatch) => {
         axios
-            .get("HEROKU_URI/ingredients")
+            .get("/ingredients")
             .then((response) => {
                 dispatch(setIngredients(response.data));
                 // dispatch(loadUser())
