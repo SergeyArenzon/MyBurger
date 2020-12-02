@@ -21,9 +21,9 @@ router.post("/add", auth, (req, res) => {
         .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.get("/", auth, (req, res) => {
+router.get("/", (req, res) => {
     const userId = req.query.userId;
-
+    // console.log(req)
     Order.find({ userId: userId }, (err, result) => {
         if (err) {
             console.log(err);
@@ -33,5 +33,5 @@ router.get("/", auth, (req, res) => {
         }
     });
 });
- 
+
 module.exports = router;

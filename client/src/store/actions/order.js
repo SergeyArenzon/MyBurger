@@ -28,11 +28,7 @@ export const purchaseBurger = (orderData) => {
     return (dispatch, getState) => {
         dispatch(purchaseBurgerStart());
         axios
-            .post(
-                "/orders/add",
-                orderData,
-                tokenConfig(getState)
-            )
+            .post("/orders/add", orderData, tokenConfig(getState))
             .then((response) => {
                 dispatch(purchaseBurgerSuccess(response.data.name, orderData));
             })
@@ -70,11 +66,15 @@ export const fetchOrderStart = () => {
 
 export const fetchOrders = () => {
     return (dispatch, getState) => {
-        
         dispatch(fetchOrderStart());
         const userId = getState().auth.user._id;
         axios
-            .get("/orders", { params: { userId: userId } })
+            .get("/orders", {
+                headers: {
+                    "Content-type": "application/json",
+                },
+                params: { userId: userId },
+            })
             .then((res) => {
                 console.log(res);
                 dispatch(fetchOrderSuccess(res.data));
