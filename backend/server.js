@@ -14,9 +14,17 @@ if (process.env.NODE_ENV === "production") {
     //serve up production assets
     app.use(express.static("../build"));
     // let the react app to handle any unknown routes // serve up the index.html if express does'nt recognize the route
+    // app.get("*", (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, "../", "build", "index.html"));
+    // });
+
     app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "../", "build", "index.html"));
-    });
+        let url = path.join(__dirname, '../build', 'index.html');
+        if (!url.startsWith('/app/')) // since we're on local windows
+          url = url.substring(1);
+        res.sendFile(url);
+      });
+      
 }
 
 const port = process.env.PORT || 5000;
