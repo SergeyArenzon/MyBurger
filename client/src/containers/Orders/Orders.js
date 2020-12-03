@@ -14,6 +14,7 @@ class Orders extends Component {
 
     componentDidMount() {
         if (this.props.auth.isAuthenticated) {
+            console.log("if (this.props.auth.isAuthenticated) ");
             this.props.onFetchOrders();
         }
     }
@@ -43,10 +44,8 @@ class Orders extends Component {
                 );
             }
         } else {
-            // orders = <Redirect to='/auth' />;
             orders = <Auth />;
         }
-
         return <div>{orders}</div>;
     }
 }

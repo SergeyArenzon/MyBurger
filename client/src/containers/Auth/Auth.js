@@ -59,12 +59,16 @@ class Auth extends Component {
 
     componentDidMount() {
         // Check if Logout pressed
-        if (this.props.isAuthenticated) {
-            this.props.onLogoutSubmit();
-        }
+        // if (this.props.isAuthenticated) {
+            // this.props.onLogoutSubmit();
+        // }
+        console.log('componentDidMount[Orders]')
+        this.props.onLogoutSubmit();
+
     }
 
     componentDidUpdate(prevProps) {
+        console.log('componentDidUpdate[Orders]')
         if (prevProps.error !== this.props.error) {
             if (this.props.error.id === "REGISTER_FAIL") {
                 this.setState({ error: this.props.error });
@@ -79,6 +83,7 @@ class Auth extends Component {
                 this.setState({ error: null });
             }
         }
+        
     }
 
     checkVaildity = (value, rules) => {
@@ -173,10 +178,15 @@ class Auth extends Component {
             errorMessage = <p>{this.state.error.msg.msg}</p>;
         }
 
+        let redirectTo = <Redirect to="/" />;
+        if (!this.props.isAuthenticated) {
+            redirectTo = null;
+        }
         return (
             <div className={classes.Auth}>
                 {/* Redirect when successfull register */}
-                {this.props.isAuthenticated ? <Redirect to="/" /> : null}
+                {redirectTo}
+
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
                     {form}
