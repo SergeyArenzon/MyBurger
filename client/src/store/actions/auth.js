@@ -88,7 +88,7 @@ export const login = ({ email, password }) => (dispatch) => {
             };
 
             delete fixedData["user[id]"];
-
+            localStorage.setItem("token", fixedData.token);
             dispatch({
                 type: actionTypes.LOGIN_SUCCESS,
                 payload: fixedData,
@@ -120,12 +120,13 @@ export const register = ({ name, email, password }) => (dispatch) => {
     const body = JSON.stringify({ name, email, password });
     axios
         .post("/users/add", body, config)
-        .then((res) =>
+        .then((res) => {
+            localStorage.setItem("token", res.data.token);
             dispatch({
                 type: actionTypes.REGISTER_SUCCESS,
                 payload: res.data,
-            })
-        )
+            });
+        })
         .catch((err) => {
             dispatch(
                 returnErrors(

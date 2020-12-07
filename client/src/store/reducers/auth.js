@@ -71,10 +71,7 @@ const reducer = (state = initialState, action) => {
             };
         case actionsType.LOGIN_SUCCESS:
         case actionsType.REGISTER_SUCCESS:
-            console.log('------------')
-            console.log(action.payload)
-            console.log('------------')
-            localStorage.setItem('token', action.payload.token);            
+            // localStorage.setItem('token', action.payload.token);            
             return {
                 ...state,
                 ...action.payload,
