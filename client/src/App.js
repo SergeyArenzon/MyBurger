@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import "./App.module.css";
 import Layout from "./hoc/Layout/Layout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
@@ -8,26 +8,49 @@ import { Route, Switch } from "react-router-dom";
 import Auth from "./containers/Auth/Auth";
 import { loadUser } from "./store/actions/auth";
 
-class App extends Component {
-    componentDidMount() {
-        this.props.store.dispatch(loadUser());
-    }
+// class App extends Component {
+//     componentDidMount() {
+//         this.props.store.dispatch(loadUser());
+//     }
 
-    render() {
-        
-        return (
-            <div>
-                <Layout>
-                    <Switch>
-                        <Route path="/" exact component={BurgerBuilder} />
-                        <Route path="/checkout" component={Checkout} />
-                        <Route path="/auth" component={Auth} />
-                        <Route path="/orders" component={Orders} />
-                    </Switch>
-                </Layout>
-            </div>
-        );
-    }
-}
+//     render() {
 
-export default App;
+//         return (
+//             <div>
+//                 <Layout>
+//                     <Switch>
+//                         <Route path="/" exact component={BurgerBuilder} />
+//                         <Route path="/checkout" component={Checkout} />
+//                         <Route path="/auth" component={Auth} />
+//                         <Route path="/orders" component={Orders} />
+//                     </Switch>
+//                 </Layout>
+//             </div>
+//         );
+//     }
+// }
+
+const app = (props) => {
+  // componentDidMount() {
+  //     
+  // }
+  useEffect(() => {
+      props.store.dispatch(loadUser());
+  }, [])
+
+  return (
+      
+    <div>
+      <Layout>
+        <Switch>
+          <Route path="/" exact component={BurgerBuilder} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/auth" component={Auth} />
+          <Route path="/orders" component={Orders} />
+        </Switch>
+      </Layout>
+    </div>
+  );
+};
+
+export default app;
