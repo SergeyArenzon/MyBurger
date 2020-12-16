@@ -48,9 +48,9 @@ const app = (props) => {
 
   let routes = (
     <Switch>
-      <Route path="/auth" component={Auth} />
-      <Route path="/checkout" component={Checkout} />
       <Route path="/" exact component={BurgerBuilder} />
+      <Route path="/checkout" component={Checkout} />
+      <Route path="/auth" component={Auth} />
       <Redirect to="/" />
     </Switch>
   );
