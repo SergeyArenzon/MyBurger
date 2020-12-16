@@ -1,6 +1,12 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
+let proxy = '';
+if(process.env.NODE_ENV === "development") {
+    proxy = 'http://localhost:5000'
+}
+
+
 export const addIngredient = (name) => {
     return {
         type: actionTypes.ADD_INGREDIENTS,
@@ -31,7 +37,7 @@ export const fetchIngredientsFailed = () => {
 export const initIngredients = () => {
     return (dispatch) => {
         axios
-            .get("/ingredients")
+            .get(proxy + "/ingredients")
             .then((response) => {
                 dispatch(setIngredients(response.data));
                 // dispatch(loadUser())

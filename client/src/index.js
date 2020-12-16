@@ -13,25 +13,27 @@ import authReducer from "./store/reducers/auth";
 import errorReducer from "./store/reducers/error";
 // import { loadUser } from "./store/actions/auth";
 
+// console.log("Mode: " + process.env.NODE_ENV);
+
 const rootReducer = combineReducers({
-    burgerBuilder: burgerBuilderReducer,
-    order: orderReducer,
-    auth: authReducer,
-    error: errorReducer,
+  burgerBuilder: burgerBuilderReducer,
+  order: orderReducer,
+  auth: authReducer,
+  error: errorReducer,
 });
 
 const composeEnhancer =
-    process.env.NODE_ENV === "development"
-        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-        : null || compose;
+  process.env.NODE_ENV === "development"
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : null || compose;
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
 
 const app = (
-    <Provider store={store}>
-        <BrowserRouter>
-            <App store={store} />
-        </BrowserRouter>
-    </Provider>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App store={store} />
+    </BrowserRouter>
+  </Provider>
 );
 
 ReactDOM.render(app, document.getElementById("root"));

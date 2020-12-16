@@ -2,6 +2,13 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { tokenConfig } from "./auth";
 
+
+let proxy = '';
+if(process.env.NODE_ENV === "development") {
+    proxy = 'http://localhost:5000'
+}
+
+
 export const purchaseBurgerSuccess = (id, orderData) => {
     return {
         type: actionTypes.PURCHASE_BURGER_SUCCESS,
@@ -28,7 +35,7 @@ export const purchaseBurger = (orderData) => {
     return (dispatch, getState) => {
         dispatch(purchaseBurgerStart());
         axios
-            .post("/orders/add", orderData, tokenConfig(getState))
+            .post(proxy + "/orders/add", orderData, tokenConfig(getState))
             .then((response) => {
                 dispatch(purchaseBurgerSuccess(response.data.name, orderData));
             })
@@ -69,7 +76,7 @@ export const fetchOrders = () => {
         dispatch(fetchOrderStart());
         const userId = getState().auth.user._id;
         axios
-            .get("/orders", {
+            .get(proxy + "/orders", {
                 headers: {
                     "Content-type": "application/json",
                 },

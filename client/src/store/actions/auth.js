@@ -70,6 +70,12 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { returnErrors } from "./error";
 
+
+let proxy = '';
+if(process.env.NODE_ENV === "development") {
+    proxy = 'http://localhost:5000'
+}
+
 export const login = ({ email, password }) => (dispatch) => {
     dispatch({ type: actionTypes.USER_LOADING });
     const config = {
@@ -80,7 +86,7 @@ export const login = ({ email, password }) => (dispatch) => {
 
     const body = JSON.stringify({ email, password });
     axios
-        .post("/auth", body, config)
+        .post(proxy + "/auth", body, config)
         .then((res) => {
             const fixedData = {
                 ...res.data,
@@ -119,7 +125,7 @@ export const register = ({ name, email, password }) => (dispatch) => {
 
     const body = JSON.stringify({ name, email, password });
     axios
-        .post("/users/add", body, config)
+        .post(proxy + "/users/add", body, config)
         .then((res) => {
             localStorage.setItem("token", res.data.token);
             dispatch({
@@ -153,7 +159,7 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: actionTypes.USER_LOADING });
 
     axios
-        .get("/auth/user", tokenConfig(getState))
+        .get(proxy + "/auth/user", tokenConfig(getState))
         .then((res) => {
             dispatch({
                 type: actionTypes.USER_LOADED,

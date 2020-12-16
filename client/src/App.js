@@ -41,6 +41,7 @@ const Orders = React.lazy(() => {
   return import("./containers/Orders/Orders");
 });
 
+
 const app = (props) => {
   useEffect(() => {
     props.store.dispatch(loadUser());
@@ -61,7 +62,7 @@ const app = (props) => {
         <Route path="/" exact component={BurgerBuilder} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/auth" component={Auth} />
-        <Route path="/orders" render={() => <Orders />} />
+        <Route path="/orders" render={(props) => <Orders {...props} />} />
       </Switch>
     );
   }
