@@ -44,6 +44,7 @@ const Orders = React.lazy(() => {
 
 const app = (props) => {
   useEffect(() => {
+    console.log("App[]")
     props.store.dispatch(loadUser());
   }, []);
 

@@ -89,7 +89,7 @@ const orders = (props) => {
     if (!props.loading) {
       orders = (
         <div className={classes.Orders}>
-          <ul className>
+          <ul>
             {props.orders.map((order) => {
               return (
                 <li key={order._id}>
