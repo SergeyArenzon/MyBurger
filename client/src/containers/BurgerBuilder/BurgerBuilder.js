@@ -25,8 +25,7 @@ const burgerBuilder = (props) => {
       props.onInitIngredients();
     }
 
-
-    console.log("[BurgerBuilder]render")
+    console.log("[BurgerBuilder]render");
   }, []);
 
   const purchaseHandler = () => {
@@ -35,7 +34,6 @@ const burgerBuilder = (props) => {
 
   const purchaseCancleHandler = () => {
     setPurchasing(false);
-
   };
   const purchaseContinueHandler = () => {
     props.onInitPurchase();
@@ -86,15 +84,10 @@ const burgerBuilder = (props) => {
 
   return (
     <Aux>
-      <Modal
-        show={purchasing}
-        modalClosed={purchaseCancleHandler}
-      >
+      <Modal show={purchasing} modalClosed={purchaseCancleHandler}>
         {orderSummary}
       </Modal>
       {burger}
-
-
     </Aux>
   );
 };
