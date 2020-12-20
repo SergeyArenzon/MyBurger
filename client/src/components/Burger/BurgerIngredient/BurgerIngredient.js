@@ -23,15 +23,21 @@ const burgerIngredient = (props) => {
     case "cheese":
       ingredient = <div className={classes.Cheese}></div>;
       break;
-    case "salad":
-      ingredient = <div className={classes.Salad}></div>;
+    case "lettuce":
+      ingredient = <div className={classes.Lettuce}></div>;
       break;
-    case "bacon":
-      ingredient = <div className={classes.Bacon}></div>;
+    case "tomato":
+      ingredient = <div className={classes.Tomato}></div>;
       break;
     case "onion":
       ingredient = <div className={classes.Onion}></div>;
       break;
+      case "mayo":
+        ingredient = <div className={classes.Mayo}></div>;
+        break; 
+        case "cucumber":
+          ingredient = <div className={classes.Cucumber}></div>;
+          break;   
     default:
       ingredient = null;
   }
