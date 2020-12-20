@@ -3,11 +3,11 @@
 
 .BuildControls {
     width: 70%;
-    background-color: #cf8f2e;
+    /* background-color: #cf8f2e; */
     display: flex;
     flex-flow: column;
     align-items: center;
-    box-shadow: 0 2px 1px #ccc;
+    /* box-shadow: 0 2px 1px #ccc; */
     /* margin-top: 170px; */
     padding: 10px 0;
 }
