@@ -113,3 +113,14 @@
   border-radius: 20px;
 }
 
+@media(max-width: 1300px) {
+  .Tomato, .Cucumber, .Mayo, .Lettuce, .Onion, .Cheese, .Meat, .BreadBottom, .BreadTop {
+    height: 7%;
+  }
+}
+
+@media(max-width: 1000px) {
+  .Tomato, .Cucumber, .Mayo, .Lettuce, .Onion, .Cheese, .Meat, .BreadBottom, .BreadTop {
+    height: 5%;
+  }
+}

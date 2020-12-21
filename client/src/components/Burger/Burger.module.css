@@ -13,22 +13,16 @@
     color: rgb(99, 60, 60);
 }
 
-@media(min-width: 1000px) and (min-height: 700px) {
-    .Burger {
-        /* width: 700px; */
-        /* height: 600px; */
+@media(max-width: 1300px) {
+    .Burger{
+        width: 300px;
     }
 }
 
-@media(min-width: 402px) and (min-height: 401px) {
-    .Burger {
-        /* width: 450px; */
-        /* height: 400px; */
+@media(max-width: 1000px) {
+    .Burger{
+        padding-top: 110px;
+        width: 200px;
     }
 }
-@media (min-width: 500px) and (min-height: 400px) {
-    .Burger {
-        /* width: 350px;
-        height: 300px; */
-    }
-}
+
