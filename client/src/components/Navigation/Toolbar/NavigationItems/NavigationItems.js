@@ -20,6 +20,7 @@ const navigationItems = (props) => {
   );
 };
 
+
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
