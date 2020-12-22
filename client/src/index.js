@@ -11,8 +11,6 @@ import thunk from "redux-thunk";
 import orderReducer from "./store/reducers/order";
 import authReducer from "./store/reducers/auth";
 import errorReducer from "./store/reducers/error";
-// import { loadUser } from "./store/actions/auth";
-
 // console.log("Mode: " + process.env.NODE_ENV);
 
 const rootReducer = combineReducers({
