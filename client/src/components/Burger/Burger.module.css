@@ -1,5 +1,5 @@
 .Burger {
-    width: 450px;
+    width: 30%git;
     /* margin: auto; */
     /* height: 100%; */
     overflow-y: scroll;
@@ -16,14 +16,14 @@
 
 @media(max-width: 1300px) {
     .Burger{
-        width: 300px;
+        /* width: 300px; */
     }
 }
 
 @media(max-width: 1000px) {
     .Burger{
         padding-top: 110px;
-        width: 200px;
+        /* width: 200px; */
     }
 }
 
