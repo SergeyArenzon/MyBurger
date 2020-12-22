@@ -73,8 +73,6 @@
     min-height: 60px;
   }
 }
-
-
 @media (max-width: 1400px) {
   .Tomato,
   .Cucumber,
@@ -89,5 +87,39 @@
     min-height: 80px;
     width: 300px;
     transition: all 0.2s linear;
+  }
+}
+
+
+@media (max-width: 1150px) {
+  .Tomato,
+  .Cucumber,
+  .Mayo,
+  .Lettuce,
+  .Onion,
+  .Cheese,
+  .Meat,
+  .BreadBottom,
+  .BreadTop {
+    height: 200px;
+    width:250px;
+    min-height: 100px;
+  }
+}
+
+
+@media (max-width: 414px) {
+  .Tomato,
+  .Cucumber,
+  .Mayo,
+  .Lettuce,
+  .Onion,
+  .Cheese,
+  .Meat,
+  .BreadBottom,
+  .BreadTop {
+    height: 40px;
+    width: 70px;
+    min-height: 20px;
   }
 }
