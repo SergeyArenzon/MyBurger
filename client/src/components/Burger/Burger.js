@@ -14,8 +14,15 @@ const burger = (props) => {
             return arr.concat(el);
         }, []);
         const addIngsText = <h2 className={classes.AddIngsText}>Add Ingredients</h2>
+
+        /* Fixes scrolling after too many ingredients added */
+        let Burger = classes.Burger;
+        if(transformedIngredients.length > 6) {
+            Burger = classes.BurgerScrolled;
+        }
+
     return (
-        <div className={classes.Burger}>
+        <div className={Burger}>
             <BurgerIngredient type="bread-top" />
             {transformedIngredients.length < 1 ? addIngsText : null}
             {transformedIngredients}

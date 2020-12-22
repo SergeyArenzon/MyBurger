@@ -1,4 +1,22 @@
 .Burger {
+  width: 30%;
+  /* margin: auto; */
+  /* height: 100%; */
+  overflow-y: scroll;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  direction: rtl;
+  transition: all 0.2s linear;
+  scrollbar-width: none;
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Fixes scrolling after too many ingredients added */
+.BurgerScrolled {
     width: 30%;
     /* margin: auto; */
     /* height: 100%; */
@@ -9,22 +27,12 @@
     direction: rtl;
     transition: all 0.2s linear;
     scrollbar-width: none;
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column;
 }
+
 
 .AddIngsText {
-    color: rgb(99, 60, 60);
+  color: rgb(99, 60, 60);
 }
-
-@media(max-width: 1300px) {
-    .Burger{
-        /* width: 300px; */
-    }
-}
-
-@media(max-width: 1000px) {
-    .Burger{
-        padding-top: 110px;
-        /* width: 200px; */
-    }
-}
-
