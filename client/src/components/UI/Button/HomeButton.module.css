@@ -28,7 +28,7 @@
     #00000017 100%
   );
 }
-.HomeButton.disabled {
+.HomeButtonDisabled {
   background: chartreuse;
   cursor: not-allowed;
 }
