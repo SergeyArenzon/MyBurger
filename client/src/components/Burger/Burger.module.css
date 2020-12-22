@@ -1,5 +1,5 @@
 .Burger {
-    width: 30%git;
+    width: 30%;
     /* margin: auto; */
     /* height: 100%; */
     overflow-y: scroll;
@@ -8,6 +8,7 @@
     font-size: 1.2rem;
     direction: rtl;
     transition: all 0.2s linear;
+    scrollbar-width: none;
 }
 
 .AddIngsText {
