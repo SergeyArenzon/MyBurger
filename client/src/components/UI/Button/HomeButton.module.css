@@ -1,0 +1,40 @@
+/* <- Demo Stuff Start */
+
+/* <- Demo Stuff Start */
+
+.HomeButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 20px #ffa400;
+  border-radius: 10px;
+  height: 70px;
+  width: 200px;
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #00000079 65%,
+    #00000017 100%
+  );
+}
+.HomeButton.disabled {
+  background: chartreuse;
+  cursor: not-allowed;
+}
+.HomeButton:hover {
+  color: black;
+  font-weight: 500;
+  transition: all 0.3s linear;
+  background-position: right center; /* change the direction of the change here */
+}

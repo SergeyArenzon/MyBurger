@@ -91,7 +91,7 @@
 }
 
 
-@media (max-width: 1150px) {
+@media (max-width: 1000px) {
   .Tomato,
   .Cucumber,
   .Mayo,
@@ -101,14 +101,16 @@
   .Meat,
   .BreadBottom,
   .BreadTop {
-    height: 200px;
-    width:250px;
-    min-height: 100px;
+    height: 60px;
+    width: 200px;
+    min-height: 60px;
   }
 }
 
 
-@media (max-width: 414px) {
+
+
+@media (max-width: 700px) {
   .Tomato,
   .Cucumber,
   .Mayo,
@@ -118,8 +120,8 @@
   .Meat,
   .BreadBottom,
   .BreadTop {
-    height: 40px;
-    width: 70px;
-    min-height: 20px;
+    height: 30px;
+    width: 80px;
+    min-height: 30px;
   }
 }

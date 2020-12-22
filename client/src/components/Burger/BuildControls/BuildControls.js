@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./BuildControls.module.css";
 import BuildControl from "./BuildControl/BuildControl";
+import HomeButton from '../../UI/Button/HomeButton';
+
 
 const controls = [
   { label: "Mayo", type: "mayo" },
@@ -33,6 +35,7 @@ const buildControls = (props) => {
           disabled={props.disabled[ctrl.type]}
         ></BuildControl>
       ))}
+      
       <button
         className={classes.OrderButton}
         disabled={!props.purchasable}
@@ -40,6 +43,12 @@ const buildControls = (props) => {
       >
         Order Now!
       </button>
+
+      <HomeButton 
+        disabled={!props.purchasable}
+        click={props.ordered}>
+
+      </HomeButton>
     </div>
   );
 };
