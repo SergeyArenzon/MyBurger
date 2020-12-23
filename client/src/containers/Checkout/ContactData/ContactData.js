@@ -6,6 +6,8 @@ import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
 import Authentication from "../../Auth/Auth";
+import {Redirect} from 'react-router-dom';
+
 
 const contactData = (props) => {
   const [orderForm, setOrderForm] = useState({
@@ -173,7 +175,11 @@ const contactData = (props) => {
     console.log("---------------spinner-------------------");
     form = <Spinner />;
   } else if (!props.auth.isAuthenticated) {
-    form = <Authentication />;
+    // form = <Authentication />;
+    props.history.push("/checkout/contact-data");
+    form = <Redirect to={"/auth"}/>
+  
+          
   } else {
     form = (
       <form onSubmit={orderHandler}>
