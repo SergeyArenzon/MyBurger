@@ -35,7 +35,7 @@
 }
 .HomeButton:hover {
   color: black;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s linear;
   background-position: right center; /* change the direction of the change here */
 }

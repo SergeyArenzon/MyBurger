@@ -47,6 +47,7 @@ const buildControls = (props) => {
       <HomeButton 
         disabled={!props.purchasable}
         click={props.ordered}>
+          Order Now!
       </HomeButton>
     </div>
   );
