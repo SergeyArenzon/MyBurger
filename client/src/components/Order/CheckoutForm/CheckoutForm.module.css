@@ -1,0 +1,22 @@
+.CheckoutForm {
+  background-color: white;
+  width: 300px;
+  height: 500px;
+  border: 0.1px rgba(0, 0, 0, 0.205) solid;
+  border-radius: 8px;
+}
+.CheckoutForm .Row {
+  display: flex;
+  flex-direction: row;
+}
+.CheckoutForm .LeftColumn {
+  background-color: tomato;
+  width: 80%;
+}
+.CheckoutForm .RightColumn {
+  background-color: teal;
+  width: 20%;
+}
+.CheckoutForm h1 {
+    padding: 10px;
+}

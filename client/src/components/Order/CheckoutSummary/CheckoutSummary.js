@@ -2,6 +2,8 @@ import React from "react";
 import Burger from "../../Burger/Burger";
 import Button from "../../../components/UI/Button/Button";
 import classes from "./CheckoutSummary.module.css";
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
+
 
 const checkoutSummary = (props) => {
 
@@ -19,8 +21,7 @@ const checkoutSummary = (props) => {
       <Burger ingredients={props.ingredients} />
 
       <div className={classes.Form}>
-        <h1>Price: {props.price}$ </h1>
-        {ingredientsSummary}
+        <CheckoutForm/>
         <div>
           <Button btnType="Danger" clicked={props.cancleClick}>
             CANCLE
