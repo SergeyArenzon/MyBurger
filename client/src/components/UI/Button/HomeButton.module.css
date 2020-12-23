@@ -17,10 +17,11 @@
   background-size: 200% auto;
   color: white;
   /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
-  box-shadow: 0 0 20px #ffa400;
+  box-shadow: 0 0 10px #0303034f;
   border-radius: 10px;
   height: 70px;
   width: 200px;
+  text-decoration: none;
   background-image: linear-gradient(
     to right,
     #000000 0%,
