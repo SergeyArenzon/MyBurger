@@ -19,9 +19,10 @@ export default function CheckoutForm(props) {
   console.log(ingredientsName);
   const ingredientsPrice = Object.entries(props.ingredients).map((ing) => {
     if (ing[1] > 0) {
-        const ingPrice = parseFloat(INGREDIENT_PRICES[ing[0]]).toFixed(1) * [ing[1]];
+        const ingPrice = parseFloat(INGREDIENT_PRICES[ing[0]]) * [ing[1]];
         
-      return <li key={ing[0]}>${ingPrice}</li>;
+        
+      return <li key={ing[0]}>${ingPrice.toFixed(1)}</li>;
     }
   });
 
