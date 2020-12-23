@@ -7,21 +7,12 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 
 const checkoutSummary = (props) => {
 
-  // ordered ingredients summary  
-  const ingredientsSummary = Object.entries(props.ingredients).map(
-    (key) => {
-      if (key[1] > 0) {
-        console.log(key);
-        return <div>{key[0] + ": " + key[1]}</div>;
-      }
-    }
-  );
   return (
     <div className={classes.CheckoutSummary}>
       <Burger ingredients={props.ingredients} />
 
       <div className={classes.Form}>
-        <CheckoutForm/>
+        <CheckoutForm ingredients={props.ingredients} price={props.price}/>
         <div>
           <Button btnType="Danger" clicked={props.cancleClick}>
             CANCLE

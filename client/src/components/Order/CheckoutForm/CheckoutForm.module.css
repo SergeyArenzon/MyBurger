@@ -1,13 +1,19 @@
 .CheckoutForm {
   background-color: white;
   width: 300px;
-  height: 500px;
-  border: 0.1px rgba(0, 0, 0, 0.205) solid;
-  border-radius: 8px;
+  height: auto;
+  border: 1px black thin;
+  border-radius: 3%;
+  -webkit-box-shadow: 0px 0px 47px 9px rgba(0, 0, 0, 0.39);
+  -moz-box-shadow: 0px 0px 47px 9px rgba(0, 0, 0, 0.39);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.39);
 }
 .CheckoutForm .Row {
   display: flex;
   flex-direction: row;
+  padding: 8px;
+  text-align: left;
+  font-size: 1.2rem
 }
 .CheckoutForm .LeftColumn {
   background-color: tomato;
@@ -17,6 +23,34 @@
   background-color: teal;
   width: 20%;
 }
+
+.CheckoutForm .TotalRow {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 8px;
+    text-align: left;
+    font-size: 1.3rem;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 7px;
+
+  }
+  .CheckoutForm .TotalLeftColumn {
+    /* background-color: tomato; */
+    width: 80%;
+  }
+  .CheckoutForm .TotalRightColumn {
+    background-color: teal;
+    width: 20%;
+  }
+
+
 .CheckoutForm h1 {
     padding: 10px;
+    font-family: 'DancingScript-VariableFont_wght';
+
+}
+.CheckoutForm ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
