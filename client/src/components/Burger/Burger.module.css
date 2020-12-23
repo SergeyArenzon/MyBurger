@@ -33,7 +33,12 @@
     flex-direction: column;
 }
 
+@media(max-width: 598px) {
+  .BurgerScrolled {
+    justify-content: center;
 
+  }
+}
 
 .AddIngsText {
   color: rgb(99, 60, 60);
