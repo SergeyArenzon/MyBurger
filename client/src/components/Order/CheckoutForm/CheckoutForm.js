@@ -22,11 +22,18 @@ export default function CheckoutForm(props) {
         <div className={classes.LeftColumn}>
           <ul>{ingredientsName}</ul>
         </div>
-        <div className={classes.RightColumn}>
+        <div className={classes.CenterColumn}>
           <ul>
            {ingredientsCount}
           </ul>
         </div>
+
+        <div className={classes.RightColumn}>
+          <ul>
+            
+          </ul>
+        </div>
+
       </div>
       <div className={classes.TotalRow}>
         <div className={classes.LeftColumn}>Total</div>
