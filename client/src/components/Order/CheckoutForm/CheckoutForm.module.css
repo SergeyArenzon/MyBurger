@@ -13,16 +13,20 @@
   flex-direction: row;
   padding: 8px;
   text-align: left;
-  font-size: 1.2rem
+  font-size: 1.2rem;
+  font-style: italic;
 }
 .CheckoutForm .LeftColumn {
-  background-color: tomato;
-  width: 80%;
+  width: 60%;
 }
 .CheckoutForm .CenterColumn {
-  background-color: teal;
   width: 20%;
 }
+.CheckoutForm .RightColumn {
+    width: 20%;
+  }
+
+
 
 .CheckoutForm .TotalRow {
     display: flex;
@@ -32,14 +36,16 @@
     font-size: 1.3rem;
     background-color: rgb(180, 180, 180);
     margin-bottom: 7px;
+    font-weight: bold;
+    font-style: italic;
 
   }
   .CheckoutForm .TotalLeftColumn {
     /* background-color: tomato; */
     width: 80%;
+    
   }
   .CheckoutForm .TotalRightColumn {
-    background-color: teal;
     width: 20%;
   }
 

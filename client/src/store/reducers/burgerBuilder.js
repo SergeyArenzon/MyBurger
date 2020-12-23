@@ -7,11 +7,10 @@ const initialState = {
     error: false,
 };
 
-const INGREDIENT_PRICES = {
+export const INGREDIENT_PRICES = {
     salad: 0.5,
     cheese: 0.4,
     meat: 1.3,
-    bacon: 0.7,
     onion: 0.2,
     cucumber: 0.2,
     lettuce: 0.2,
