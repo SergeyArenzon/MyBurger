@@ -7,17 +7,20 @@ const checkoutSummary = (props) => {
   return (
     <div className={classes.CheckoutSummary}>
       <Burger ingredients={props.ingredients} />
-      <Button btnType="Danger" clicked={props.cancleClick}>
-        CANCLE
-      </Button>
 
-      <Button
-        btnType="Success"
-        clicked={props.continueClick}
-        disabled={props.hide}
-      >
-        CONTINUE
-      </Button>
+      <div className={classes.Form}>
+        <Button btnType="Danger" clicked={props.cancleClick}>
+          CANCLE
+        </Button>
+
+        <Button
+          btnType="Success"
+          clicked={props.continueClick}
+          disabled={props.hide}
+        >
+          CONTINUE
+        </Button>
+      </div>
     </div>
   );
 };

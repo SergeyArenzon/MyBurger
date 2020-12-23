@@ -1,7 +1,17 @@
 .CheckoutSummary {
   text-align: center;
   width: 100%;
+  height: 100%;
   /* margin: auto; */
   display: flex;
 }
 
+.CheckoutSummary .Form {
+  width: 70%;
+  align-content: center;
+  display: flex;
+  align-items: unset;
+  flex-flow: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
