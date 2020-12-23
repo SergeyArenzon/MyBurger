@@ -10,8 +10,7 @@
   width: 70%;
   align-content: center;
   display: flex;
-  align-items: unset;
-  flex-flow: row;
+  flex-flow: column;
   justify-content: center;
   flex-wrap: wrap;
 }

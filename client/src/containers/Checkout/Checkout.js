@@ -25,6 +25,7 @@ const checkout = (props) => {
         {purchasedRedirect}
         
         <CheckoutSummary
+          price={props.price}
           ingredients={props.ings}
           cancleClick={cancleHandler}
           continueClick={continueHandler}
