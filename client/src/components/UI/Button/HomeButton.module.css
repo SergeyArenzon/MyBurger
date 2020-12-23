@@ -30,7 +30,7 @@
   );
 }
 .HomeButtonDisabled {
-  background: chartreuse;
+  /* background: chartreuse;*/
   cursor: not-allowed;
 }
 .HomeButton:hover {
