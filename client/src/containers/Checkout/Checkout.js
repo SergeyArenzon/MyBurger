@@ -3,6 +3,7 @@ import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSumm
 import { Route, Redirect } from "react-router-dom";
 import ContactData from "../Checkout/ContactData/ContactData";
 import { connect } from "react-redux";
+import classes from './Checkout.module.css';
 
 const checkout = (props) => {
   const [contactIsLoaded, setContactIsLoaded] = useState(false);
@@ -20,8 +21,9 @@ const checkout = (props) => {
     const purchasedRedirect = props.purchased ? <Redirect to="/" /> : null;
 
     summary = (
-      <div>
+      <div className={classes.Checkout}>
         {purchasedRedirect}
+        
         <CheckoutSummary
           ingredients={props.ings}
           cancleClick={cancleHandler}
