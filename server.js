@@ -39,9 +39,9 @@ connection.once("open", () => {
 });
 
 
-app.get('/', (req, res) => {
-    // res.send('MyBurger Refreshed!!');
-  })
+// app.get('/', (req, res) => {
+//     // res.send('MyBurger Refreshed!!');
+//   })
 
 
 const ordersRouter = require("./routes/orders");
