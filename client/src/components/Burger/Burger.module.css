@@ -43,3 +43,9 @@
 .AddIngsText {
   color: rgb(99, 60, 60);
 }
+
+Burger::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+

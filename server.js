@@ -38,6 +38,12 @@ connection.once("open", () => {
     console.log("MongoDB database connection established successfully");
 });
 
+
+app.get('/', (req, res) => {
+    return res.send('MyBurger Refreshed!!');
+  })
+
+
 const ordersRouter = require("./routes/orders");
 app.use("/orders", ordersRouter);
 
@@ -59,6 +65,7 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     });
 }
+
 
 const port = process.env.PORT || 5000;
 
