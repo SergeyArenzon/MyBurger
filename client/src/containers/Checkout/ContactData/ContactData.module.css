@@ -1,19 +1,37 @@
 .ContactData {
-    margin: 20px auto;
-    width: 80%;
+    /* margin: auto auto; */
     text-align: center;
+    width: 400px;
     box-shadow: 0 2px 3px #ccc;
     background: 1px solid #eee;
     padding: 10px;
     box-sizing: border-box;
+    position: fixed;
+    top: 30%;
+    left: 55%;
+    background-color: tomato;
 }
 
 .Input  {
     display: block;
 }
 
-@media (min-width: 600px){
+@media (max-width: 1550px){
     .ContactData {
-        width: 500px;
+        left: 50%;
+    }
+}
+
+
+@media (max-width: 1070px){
+    .ContactData {
+        left: 45%;
+    }
+}
+
+@media (max-width: 775px){
+    .ContactData {
+        left: 50%;
+        width: 200px;
     }
 }
