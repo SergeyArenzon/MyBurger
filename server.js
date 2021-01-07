@@ -40,7 +40,7 @@ connection.once("open", () => {
 
 
 app.get('/', (req, res) => {
-    return res.send('MyBurger Refreshed!!');
+    res.send('MyBurger Refreshed!!');
   })
 
 
