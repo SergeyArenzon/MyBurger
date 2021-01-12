@@ -10,34 +10,58 @@
     cursor: pointer;
     z-index: 201;
     position: relative;
-    margin-top: 10px
+    margin-top: 10px;
+    transition: all 0.4s ease;
 
 }
 
 .DrawerToggle div {
     width: 90%;
     height: 3px;
-    background-color: red;
+    background-color: #ff7000;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+
 }
 
-.DrawerToggle div:after{
+.DrawerToggle div:after, .DrawerToggle div:before{
+    background: inherit;
     position: absolute;
     content: '';
-    width: 90%;
+    width: 100%;
     height: 3px;
-    top: 4px;
-    background-color: red;
+    top: 10px;
+    border-radius: 25px;
 } 
-
 
 .DrawerToggle div:before{
-    position: absolute;
-    content: '';
-    width: 90%;
-    height: 3px;
-    top: 12px;
-    background-color: red;
+
+    top: -10px;
 } 
+
+
+/*  CLICKED */
+
+.Clicked {
+
+    transform: rotate(135deg);
+    transition: all 0.4s ease;
+}
+
+.Clicked:hover {
+    transform: rotate(-225deg);
+}
+
+
+.Clicked div:after, 
+.Clicked div:before
+{
+    top: 0;
+    transform: rotate(90deg);
+}
 
 
 @media (min-width: 500px) {
