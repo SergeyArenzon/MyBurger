@@ -9,6 +9,7 @@ export default function CheckoutForm(props) {
         <li key={key[0]}>{key[0].charAt(0).toUpperCase() + key[0].slice(1)}</li>
       );
     }
+    else return null;
   
   });
 
@@ -16,6 +17,7 @@ export default function CheckoutForm(props) {
     if (key[1] > 0) {
       return <li key={key[0]}>{key[1]}</li>;
     }
+    else return null;
   });
   console.log(ingredientsName);
   const ingredientsPrice = Object.entries(props.ingredients).map((ing) => {
@@ -25,6 +27,7 @@ export default function CheckoutForm(props) {
         
       return <li key={ing[0]}>${ingPrice.toFixed(1)}</li>;
     }
+    else return null;
   });
 
   return (

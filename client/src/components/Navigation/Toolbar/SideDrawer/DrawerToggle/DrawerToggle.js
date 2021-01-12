@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./DrawerToggle.module.css";
 
 const drawerToggle = (props) => {
-    const [clicked, setClicked] = useState(false);
-
-  
 
     let drawer = classes.DrawerToggle;
 

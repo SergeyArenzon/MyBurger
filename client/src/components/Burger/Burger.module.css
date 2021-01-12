@@ -13,6 +13,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+
+  
 }
 
 /* Fixes scrolling after too many ingredients added */
@@ -31,7 +34,10 @@
     /* margin: auto; */
     display: flex;
     flex-direction: column;
+
+
 }
+
 
 @media(max-width: 598px) {
   .BurgerScrolled {
