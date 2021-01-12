@@ -35,4 +35,11 @@
     width: 100%;
     text-align: center;
 }
+.SideDrawer a,
+.SideDrawer a:visited,
+.SideDrawer a:active
+{
+    color:#ff7000;
+}
+
 
