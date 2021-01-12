@@ -5,7 +5,6 @@ import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
-import Authentication from "../../Auth/Auth";
 import { Redirect } from "react-router-dom";
 
 const contactData = (props) => {

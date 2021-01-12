@@ -3,7 +3,6 @@ import Burger from "../../Burger/Burger";
 import Button from "../../../components/UI/Button/Button";
 import classes from "./CheckoutSummary.module.css";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
-import { Link } from "react-router-dom";
 
 const checkoutSummary = (props) => {
   return (

@@ -8,13 +8,37 @@
     padding: 10px 0;
     box-sizing: border-box;
     cursor: pointer;
+    z-index: 201;
+    position: relative;
+    margin-top: 10px
+
 }
 
 .DrawerToggle div {
     width: 90%;
     height: 3px;
-    background-color: white;
+    background-color: red;
 }
+
+.DrawerToggle div:after{
+    position: absolute;
+    content: '';
+    width: 90%;
+    height: 3px;
+    top: 4px;
+    background-color: red;
+} 
+
+
+.DrawerToggle div:before{
+    position: absolute;
+    content: '';
+    width: 90%;
+    height: 3px;
+    top: 12px;
+    background-color: red;
+} 
+
 
 @media (min-width: 500px) {
     .DrawerToggle {

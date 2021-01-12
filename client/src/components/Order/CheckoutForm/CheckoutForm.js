@@ -9,6 +9,7 @@ export default function CheckoutForm(props) {
         <li key={key[0]}>{key[0].charAt(0).toUpperCase() + key[0].slice(1)}</li>
       );
     }
+  
   });
 
   const ingredientsCount = Object.entries(props.ingredients).map((key) => {
