@@ -12,21 +12,32 @@
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 90;
-    background: linear-gradient(180deg, rgba(0,0,0,0.30994404597776615) 0%, rgba(0,0,0,0.14467793953518904) 25%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.30994404597776615) 0%,
+        rgba(0, 0, 0, 0.14467793953518904) 25%,
+        rgba(0, 0, 0, 0) 100%
+    );
 }
 
 .Toolbar nav {
     height: 100%;
-    
 }
 
 .Logo {
     height: 75px;
- 
 }
 
 @media (max-width: 499px) {
     .DesktopOnly {
         display: none;
+    }
+    .Logo{
+        padding-top: 20px;
+        height: 60px;
+    }
+    .Logo img {
+        background: black;
+        border-radius: 50%;
     }
 }

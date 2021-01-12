@@ -36,10 +36,11 @@
     text-align: center;
 }
 .SideDrawer a,
-.SideDrawer a:visited,
-.SideDrawer a:active
+.SideDrawer a:visited
 {
     color:#ff7000;
 }
 
-
+.SideDrawer a:active{
+    font-size: large;
+}
