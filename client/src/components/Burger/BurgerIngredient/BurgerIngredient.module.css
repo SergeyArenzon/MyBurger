@@ -16,8 +16,9 @@
   margin: 2% auto;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-out;
   cursor: pointer;
+  
 }
 
 .Tomato:hover,
@@ -26,10 +27,9 @@
 .Lettuce:hover,
 .Onion:hover,
 .Cheese:hover,
-.Meat:hover,
-.BreadBottom:hover,
-.BreadTop:hover {
-  
+.Meat:hover {
+  box-shadow:  inset 0px -5px 50px #ff6f0054;
+  border-radius: 20px;
 }
 
 
