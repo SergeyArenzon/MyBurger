@@ -11,13 +11,27 @@
   height: 100px;
   width: 350px;
   /* background: linear-gradient(#F08E4A, #e27b36); */
-  border-radius: 0 0 30px 30px;
+  /* border-radius: 0 0 30px 30px; */
   /* box-shadow: inset -15px 0 #c15711; */
   margin: 2% auto;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   transition: all 0.2s linear;
+  cursor: pointer;
 }
+
+.Tomato:hover,
+.Cucumber:hover,
+.Mayo:hover,
+.Lettuce:hover,
+.Onion:hover,
+.Cheese:hover,
+.Meat:hover,
+.BreadBottom:hover,
+.BreadTop:hover {
+  
+}
+
 
 .BreadBottom {
   background-image: url("../../../assets/images/bottom-bread.png");
