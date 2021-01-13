@@ -1,16 +1,14 @@
 import React from "react";
 import classes from "./Burger.module.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
-
-
-
+import { connect } from "react-redux";
+import * as actions from "../../store/actions/index";
 
 const burger = (props) => {
-
     let transformedIngredients = Object.keys(props.ingredients)
         .map((igKey) => {
             return [...Array(props.ingredients[igKey])].map((_, i) => {
-                return <BurgerIngredient key={igKey + i} type={igKey} />;
+                return <BurgerIngredient key={igKey + i} type={igKey} clickForRemove={props.onIngredientRemoved}/>;
             });
         })
         .reduce((arr, el) => {
@@ -36,4 +34,11 @@ const burger = (props) => {
     );
 };
 
-export default burger;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onIngredientRemoved: (ingName) =>
+            dispatch(actions.removeIngredient(ingName)),
+    };
+};
+
+export default connect(null, mapDispatchToProps)(burger);
