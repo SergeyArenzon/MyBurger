@@ -8,7 +8,9 @@
 
 @media(max-width: 499px) {
     .Content {
-        margin-top: 10px;
+        /* overflow: hidden;
+        margin-top: 10px; */
     }
+    
     
 }
