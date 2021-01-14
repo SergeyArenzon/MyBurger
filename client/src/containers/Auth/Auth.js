@@ -227,6 +227,7 @@ import { Redirect } from "react-router-dom";
 
 const auth = (props) => {
   const [signupMode, setSingupMode] = useState(false);
+  const [transitionClass, setTransitionClass] = useState(false);
   const [error, setError] = useState("");
   const [controls, setControls] = useState({
     name: {
@@ -346,6 +347,7 @@ const auth = (props) => {
   };
 
   const switchAuthModeHandler = () => {
+    transitionToggler();
     setSingupMode(!signupMode);
     setError(null);
   };
@@ -357,6 +359,12 @@ const auth = (props) => {
       config: controls[key],
     });
   }
+
+
+  const transitionToggler = () => {
+    setTransitionClass(!transitionClass);
+    console.log(transitionClass)
+  } 
 
   let form = formElementsArray.map((formElement) => {
     if (signupMode || !(formElement.id === "name")) {
@@ -388,8 +396,11 @@ const auth = (props) => {
   if (!props.isAuthenticated) {
     redirectTo = null;
   }
+
+
+
   return (
-    <div className={classes.Auth}>
+    <div className={[classes.Auth, transitionClass ? classes.Swipe : null].join(' ')}>
       {/* Redirect when successfull register */}
       {redirectTo}
 

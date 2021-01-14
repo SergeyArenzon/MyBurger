@@ -3,9 +3,12 @@
     width: 80%;
     text-align: center;
     box-shadow: 0 2px 3px #ccc;
-    background: 1px solid #eee;
+    background: #eee;
     padding: 10px;
     box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+    height: fit-content;
+
 }
 
 .Input {
@@ -21,4 +24,10 @@
 .Auth p {
     color: red;
     font-weight: bold;
+}
+
+.Swipe {
+    
+    transition: all 0.5s ease-in-out;
+    transform: rotateY(360deg);
 }
