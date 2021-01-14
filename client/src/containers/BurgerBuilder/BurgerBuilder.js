@@ -79,7 +79,7 @@ const burgerBuilder = (props) => {
             ></OrderSummary>
         );
     }
-  
+
     return (
         <Aux>
             <Modal show={purchasing} modalClosed={purchaseCancleHandler}>

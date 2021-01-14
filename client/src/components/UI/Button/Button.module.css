@@ -8,19 +8,41 @@
     padding: 10px;
     margin: 10px;
     font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease-in;
+    font-family: 'ChakraPetch-SemiBold';
+    
 }
 
-.Button:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
-}
 
 .Success {
-    color: #5C9210;
+    background: transparent;
+    color: #ff7000;
+    border: 4px #ff7000 solid;
+
+}
+
+.Success:hover {
+    color: black;
+    background: #ff7000;
+    
 }
 
 .Danger {
-    color: #944317;
+    background: transparent;
+    color: rgb(243, 103, 88);
+    border: 4px rgb(243, 103, 88) solid;
+
+}
+
+.Danger:hover {
+    background: rgb(243, 103, 88);
+    color: black;
+}
+
+Button:hover {
+    background: rgba(8, 8, 8, 0.137);
 }
 
 button:disabled {

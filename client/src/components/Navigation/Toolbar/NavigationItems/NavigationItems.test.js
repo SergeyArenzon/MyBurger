@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { configure, shallow } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 
-import NavigationItems from './NavigationItems';
-import NavigationItem from './NavigationItem/NavigationItem';
-import { Provider } from 'react-redux';
+import NavigationItems from "./NavigationItems";
+import NavigationItem from "./NavigationItem/NavigationItem";
+import { Provider } from "react-redux";
 import authReducer from "../../../../store/reducers/auth";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
@@ -17,20 +17,29 @@ const rootReducer = combineReducers({
     // error: errorReducer,
 });
 
-const composeEnhancer = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+const composeEnhancer =
+    process.env.NODE_ENV === "development"
+        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        : null || compose;
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
 
-configure({adapter: new Adapter()});
+configure({ adapter: new Adapter() });
 
-describe('<NavigationItems />', () => {
+describe("<NavigationItems />", () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<Provider store={store}><NavigationItems /></Provider>);
+        wrapper = shallow(
+            <Provider store={store}>
+                <NavigationItems />
+            </Provider>
+        );
     });
 
-    it('should render two <NavigationItem /> elements if not authenticated', () => {
-        expect(wrapper.contains(<NavigationItem>25555</NavigationItem>)).toEqual(true);
+    it("should render two <NavigationItem /> elements if not authenticated", () => {
+        expect(
+            wrapper.contains(<NavigationItem>25555</NavigationItem>)
+        ).toEqual(true);
     });
 
     // it('should render three <NavigationItem /> elements if authenticated', () => {

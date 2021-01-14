@@ -1,0 +1,12 @@
+.OrderSummary{
+   color: white;
+   text-align: center;
+   align-items: center;
+   font-weight: bold;
+   text-transform: uppercase;
+
+}
+
+.OrderSummary p {
+    font-size: 1.5rem;
+}
