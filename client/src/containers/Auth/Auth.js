@@ -396,10 +396,10 @@ const auth = (props) => {
       {errorMessage}
       <form onSubmit={submitHandler}>
         {form}
-        <Button btnType={"Success"}>SUBMIT</Button>
+        <Button btnType={"Checkout_Continue"}>SUBMIT</Button>
       </form>
 
-      <Button btnType="Danger" clicked={switchAuthModeHandler}>
+      <Button btnType="Checkout_Cancle" clicked={switchAuthModeHandler}>
         SWITCH TO {signupMode ? "SIGNIN" : "SIGNUP"}
       </Button>
     </div>

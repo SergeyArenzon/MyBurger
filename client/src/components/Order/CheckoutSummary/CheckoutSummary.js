@@ -12,7 +12,7 @@ const checkoutSummary = (props) => {
       <div className={classes.Form}>
         <CheckoutForm ingredients={props.ingredients} price={props.price} />
         <div>
-          <Button btnType="Danger" clicked={props.cancleClick}>
+          <Button btnType="Checkout_Cancle" clicked={props.cancleClick}>
             CANCLE
           </Button>
 
@@ -20,7 +20,7 @@ const checkoutSummary = (props) => {
               btn
           </Link> */}
             <Button
-              btnType="Success"
+              btnType="Checkout_Continue"
               clicked={props.continueClick}
               disabled={props.hide}
             >

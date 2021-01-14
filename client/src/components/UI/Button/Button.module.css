@@ -49,3 +49,27 @@ button:disabled {
     color: #ccc;
     cursor: not-allowed;
 }
+
+
+
+.Checkout_Continue {
+    /* background: black ; */
+    border: 4px black solid;
+    color: black;
+}
+.Checkout_Continue:hover {
+    background: black;
+    color: #ff7000;
+}
+
+.Checkout_Cancle {
+    /* background: black ; */
+    border: 4px rgb(253, 50, 50) solid;
+    color: rgb(253, 50, 50);
+}
+.Checkout_Cancle:hover {
+    background: rgb(253, 50, 50);
+    color: #ff7000;
+
+}
+
