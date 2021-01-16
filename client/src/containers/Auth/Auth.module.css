@@ -1,16 +1,51 @@
 .Auth {
     margin: 20px auto;
     width: 80%;
+    height: 400px;
     text-align: center;
-    box-shadow: 0 2px 3px #ccc;
-    background: #eee;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    background: rgba(253, 253, 253, 0.973);
     padding: 10px;
     box-sizing: border-box;
-    transition: all 0.5s ease-in-out;
-    height: fit-content;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    padding: 20px 60px;
+    /* background: url('../../assets/images/hamburger.jpg') ;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center; */
+
+}
+.Auth:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    /* background: url('../../assets/images/hamburger.jpg') ;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center; */
+
+    /* background: rgba(0, 0, 0, 0.527); */
+    z-index: -1;
 
 }
 
+
+.Auth form {
+    margin-bottom: 20px;
+}
+
+.Auth form div{
+    margin-bottom: 15px;
+}
+
+.Auth
 .Input {
     display: block;
 }
@@ -26,8 +61,29 @@
     font-weight: bold;
 }
 
+.Auth .Title {
+    text-align: left;
+    border-bottom: 3px blue solid;
+    margin-bottom: 20px;
+    width: max-content;
+    font-weight: bold;
+    font-family: 'ChakraPetch-SemiBold';
+    font-size: 1.5rem;
+}
+.Auth input {
+    border-radius: 20px;
+}
+
+.Auth input:active,
+.Auth input:hover {
+    box-shadow: 1px 1px 5px black;
+    transition: all 0.2s ;
+}
+
 .Swipe {
     
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     transform: rotateY(360deg);
 }
+
+

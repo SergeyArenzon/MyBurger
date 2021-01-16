@@ -63,7 +63,7 @@ const input = (props) => {
 
 
     return (
-        <div style={{ marginBottom: "8px" }}>
+        <div>
             <label className={classes.Lable}>{props.lable}</label>
             {inputElement}
         </div>
