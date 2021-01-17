@@ -54,11 +54,15 @@ button:disabled {
 
 .Checkout_Continue {
     /* background: black ; */
-    border: 4px black solid;
+    border: 2px #ff7000 solid;
     color: black;
+    background: #ff7000;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 1.2rem;
 }
 .Checkout_Continue:hover {
-    background: black;
+    background: transparent;
     color: #ff7000;
 }
 

@@ -406,7 +406,7 @@ const auth = (props) => {
       {/* Redirect when successfull register */}
       {redirectTo}
       <div className={classes.Title}>
-        LOGIN
+        {signupMode ? 'SINGUP' : 'LOGIN'}
       </div>
         
       {errorMessage}
