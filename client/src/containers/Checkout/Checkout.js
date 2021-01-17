@@ -4,6 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import ContactData from "../Checkout/ContactData/ContactData";
 import { connect } from "react-redux";
 import classes from "./Checkout.module.css";
+import Modal from '../../components/UI/Modal/Modal'
 
 const checkout = (props) => {
     const [contactIsLoaded, setContactIsLoaded] = useState(false);
@@ -13,7 +14,6 @@ const checkout = (props) => {
     };
     const continueHandler = () => {
         setContactIsLoaded(true);
-        props.history.replace(props.location.pathname + "/contact-data");
     };
 
     let summary = <Redirect to="/" />;
@@ -31,10 +31,13 @@ const checkout = (props) => {
                     continueClick={continueHandler}
                     hide={contactIsLoaded}
                 />
-                <Route
+                {/* <Route
                     path={props.match.path + "/contact-data"}
                     component={ContactData}
-                />
+                /> */}
+                {contactIsLoaded ? <ContactData/> : null}
+
+
             </div>
         );
     }

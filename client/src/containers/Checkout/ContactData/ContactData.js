@@ -39,26 +39,13 @@ const contactData = (props) => {
             elementType: "input",
             elementConfig: {
                 type: "text",
-                placeholder: "ZIP Code",
+                placeholder: "Phone",
             },
             value: "",
             validation: {
                 required: true,
                 minLength: 5,
                 maxLength: 5,
-            },
-            valid: false,
-            touched: false,
-        },
-        country: {
-            elementType: "input",
-            elementConfig: {
-                type: "text",
-                placeholder: "Country",
-            },
-            value: "",
-            validation: {
-                required: true,
             },
             valid: false,
             touched: false,
@@ -161,6 +148,9 @@ const contactData = (props) => {
         setOrderForm(updatedOrderForm);
         setFormIsValid(formIsValid);
     };
+
+
+
     const formElementsArray = [];
     for (let key in orderForm) {
         formElementsArray.push({
@@ -168,6 +158,11 @@ const contactData = (props) => {
             config: orderForm[key],
         });
     }
+
+
+
+   
+
     let form = null;
 
     if (props.loading) {
@@ -175,11 +170,14 @@ const contactData = (props) => {
         form = <Spinner />;
     } else if (!props.auth.isAuthenticated) {
         // form = <Authentication />;
-        props.history.push("/checkout/contact-data");
+        // props.history.push("/checkout/contact-data");
         form = <Redirect to={"/auth"} />;
     } else {
+        
         form = (
+            
             <form onSubmit={orderHandler}>
+                <h1>Order Info</h1>
                 {formElementsArray.map((formElement) => {
                     return (
                         <Input
@@ -190,12 +188,12 @@ const contactData = (props) => {
                             invalid={!formElement.config.valid}
                             changed={(event) =>
                                 inputChangedHandle(event, formElement.id)
-                            }   
+                            }
                             touched={formElement.config.touched}
                         />
                     );
                 })}
-
+                <Button type="button">CANCLE</Button>
                 <Button btnType="Success" disabled={!formIsValid}>
                     ORDER
                 </Button>

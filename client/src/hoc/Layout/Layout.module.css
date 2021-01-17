@@ -5,11 +5,23 @@
     /* background: linear-gradient(74deg, rgb(0, 0, 0) 37%, rgb(252, 159, 0) 29%); */
 }
 
+.Footer {
+    position: fixed;
+    display: inline-block;
+    right: 0;
+    background: transparent;
+    text-align: right;
+    bottom: 15px;
+    padding-right: 10px;
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+
 
 @media(max-width: 499px) {
-    .Content {
-        /* overflow: hidden;
-        margin-top: 10px; */
+    .Footer {
+       bottom: 0;
     }
     
     
