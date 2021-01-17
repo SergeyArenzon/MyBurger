@@ -17,7 +17,7 @@ const input = (props) => {
                     className={inputClasses.join(" ")}
                     {...props.elementConfig}
                     value={props.value}
-                    onChange={props.changed}git push heroku master
+                    onChange={props.changed}
                 />
             );
             break;
@@ -60,12 +60,13 @@ const input = (props) => {
             );
     }
 
-
-
     return (
         <div className={classes.Input}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
+            {props.label === 'email' ? <i class="fa fa-envelope" ></i> : null }
+            {props.label === 'password' ? <i class="fa fa-unlock-alt"></i>: null }
+            {props.label === 'name' ? <i className="fa fa-user-friends"></i>: null }
         </div>
     );
 };

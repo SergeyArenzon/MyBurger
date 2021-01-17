@@ -224,7 +224,8 @@ import { connect } from "react-redux";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { register, logout, login } from "../../store/actions/auth";
 import { Redirect } from "react-router-dom";
-import 'font-awesome/css/font-awesome.min.css';
+
+
 
 const auth = (props) => {
   const [signupMode, setSingupMode] = useState(false);
@@ -405,14 +406,14 @@ const auth = (props) => {
     <div className={[classes.Auth, transitionClass ? classes.Swipe : classes.Swipe2 ].join(' ')}>
       {/* Redirect when successfull register */}
       {redirectTo}
+      
       <div className={classes.Title}>
         {signupMode ? 'SINGUP' : 'LOGIN'}
       </div>
-        
       {errorMessage}
       <form onSubmit={submitHandler}>
         {form}
-        <Button btnType={"Checkout_Continue"}>SUBMIT</Button>
+        <Button btnType={"Checkout_Login"}>SUBMIT</Button>
       </form>
 
       <a href='# ' onClick={switchAuthModeHandler} >

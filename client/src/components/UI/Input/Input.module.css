@@ -4,6 +4,7 @@
     box-sizing: border-box;
     height: 70px;
     /* position: relative; */
+    position: relative;
 }
 
 .Label {
@@ -34,6 +35,9 @@
     width: 100%;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.103);
+    text-align: center;
+    
+
 
 }
 
@@ -56,3 +60,11 @@
  /* a {
     color: rgb(255, 255, 255);
 } */
+
+
+i {
+    color: white;
+    position: absolute;
+    top: 27px;
+    left: 10px;
+}
