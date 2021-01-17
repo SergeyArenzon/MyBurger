@@ -417,7 +417,7 @@ const auth = (props) => {
       </form>
 
       <a href='# ' onClick={switchAuthModeHandler} >
-        {signupMode ? "SIGNUP" : "LOGIN"}
+        {signupMode ? "LOGIN" : "SINGUP"}
       </a>
     </div>
   );

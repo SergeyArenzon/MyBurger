@@ -6,13 +6,12 @@
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
         0 17px 50px 0 rgba(0, 0, 0, 0.19);
     /* background: rgba(253, 253, 253, 0.973); */
-    padding: 10px;
     box-sizing: border-box;
     transition: all 0.3s ease-in-out;
     border-radius: 10px;
     position: relative;
     z-index: 1;
-    padding: 20px 60px;
+    padding: 70px 60px;
     background: url("../../assets/images/hamburger.jpg");
     background-repeat: no-repeat;
     background-size: cover;
