@@ -4,7 +4,7 @@
     height: 400px;
     text-align: center;
     box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-    background: rgba(253, 253, 253, 0.973);
+    /* background: rgba(253, 253, 253, 0.973); */
     padding: 10px;
     box-sizing: border-box;
     transition: all 0.3s ease-in-out;
@@ -12,10 +12,11 @@
     position: relative;
     z-index: 1;
     padding: 20px 60px;
-    /* background: url('../../assets/images/hamburger.jpg') ;
+    background: url('../../assets/images/hamburger.jpg') ;
     background-repeat:no-repeat;
     background-size: cover;
-    background-position: center; */
+    background-position: center;
+    height: min-content;
 
 }
 .Auth:before{
@@ -26,12 +27,7 @@
     top: 0;
     left: 0;
     border-radius: 10px;
-    /* background: url('../../assets/images/hamburger.jpg') ;
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-position: center; */
-
-    /* background: rgba(0, 0, 0, 0.527); */
+    background: rgba(99, 98, 98, 0.808);
     z-index: -1;
 
 }
@@ -42,7 +38,7 @@
 }
 
 .Auth form div{
-    margin-bottom: 15px;
+    /* margin-bottom: 5px; */
 }
 
 .Auth
@@ -63,22 +59,24 @@
 
 .Auth .Title {
     text-align: left;
-    border-bottom: 3px blue solid;
+    border-bottom: 7px #ff7000 solid;
     margin-bottom: 20px;
     width: max-content;
     font-weight: bold;
     font-family: 'ChakraPetch-SemiBold';
     font-size: 1.5rem;
+    color: white;
+
 }
 .Auth input {
     border-radius: 20px;
 }
 
-.Auth input:active,
+/* .Auth input:active,
 .Auth input:hover {
     box-shadow: 1px 1px 5px black;
     transition: all 0.2s ;
-}
+} */
 
 .Swipe {
     

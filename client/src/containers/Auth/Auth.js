@@ -235,7 +235,7 @@ const auth = (props) => {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "Full Name",
+        // placeholder: "Full Name",
       },
       value: "",
       validation: {

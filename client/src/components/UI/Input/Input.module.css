@@ -18,27 +18,39 @@
     font-style: italic;
     font-family: 'ChakraPetch-SemiBold';
     text-transform: uppercase;
+    margin-bottom: 0.3px;
+    color: white;
 }
 
 
 
 .InputElement {
     outline: none;
-    border: 1px solid #ccc;
-    background-color: white;
+    border: 1px solid rgba(204, 204, 204, 0.39);
+    /* background-color: white; */
     font: inherit;
     padding: 6px 10px;
     display: block;
     width: 100%;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.103);
+
 }
 
 .InputElement:focus {
     outline: none;
-    background-color: #ccc;
+    background-color: rgba(250, 249, 249, 0.144);
+}
+
+.Input input:hover, .Input input:focus {
+    box-shadow: 1px 0px 3px rgba(255, 255, 255, 0.562);
+    transition: all 0.2s linear;
+    background: rgba(255, 255, 255, 0.288);
 }
 
 .Invalid {
     border: 1px solid red;
     background-color: rgb(245, 161, 151);
 }
+
+
