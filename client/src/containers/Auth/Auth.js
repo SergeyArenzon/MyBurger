@@ -224,6 +224,7 @@ import { connect } from "react-redux";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { register, logout, login } from "../../store/actions/auth";
 import { Redirect } from "react-router-dom";
+import Logo from '../../components/Logo/Logo'
 
 
 
@@ -406,7 +407,7 @@ const auth = (props) => {
     <div className={[classes.Auth, transitionClass ? classes.Swipe : classes.Swipe2 ].join(' ')}>
       {/* Redirect when successfull register */}
       {redirectTo}
-      
+      <Logo/>
       <div className={classes.Title}>
         {signupMode ? 'SINGUP' : 'LOGIN'}
       </div>
