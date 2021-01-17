@@ -249,7 +249,7 @@ const auth = (props) => {
       elementType: "input",
       elementConfig: {
         type: "email",
-        placeholder: "Mail Address",
+        // placeholder: "Mail Address",
       },
       value: "",
       validation: {
@@ -263,7 +263,7 @@ const auth = (props) => {
       elementType: "input",
       elementConfig: {
         type: "password",
-        placeholder: "Password",
+        // placeholder: "Password",
       },
       value: "",
       validation: {
@@ -379,6 +379,7 @@ const auth = (props) => {
           shouldValidate={formElement.config.validation}
           touched={formElement.config.touched}
           changed={(event) => inputChangedHandler(event, formElement.id)}
+          label={formElement.id}
         />
       );
     }

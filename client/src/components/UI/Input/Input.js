@@ -63,8 +63,8 @@ const input = (props) => {
 
 
     return (
-        <div>
-            <label className={classes.Lable}>{props.lable}</label>
+        <div className={classes.Input}>
+            <label className={classes.Label}>{props.label}</label>
             {inputElement}
         </div>
     );
