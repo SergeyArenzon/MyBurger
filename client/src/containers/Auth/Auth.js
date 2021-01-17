@@ -415,9 +415,9 @@ const auth = (props) => {
         <Button btnType={"Checkout_Continue"}>SUBMIT</Button>
       </form>
 
-      <Button btnType="Checkout_Cancle" clicked={switchAuthModeHandler}>
-        SWITCH TO {signupMode ? "SIGNIN" : "SIGNUP"}
-      </Button>
+      <a href='# ' onClick={switchAuthModeHandler} >
+        {signupMode ? "SIGNUP" : "LOGIN"}
+      </a>
     </div>
   );
 };
