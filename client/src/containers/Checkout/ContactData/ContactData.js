@@ -175,32 +175,39 @@ const contactData = (props) => {
                         return (
                             <div>
                                 <label>{formElement.id}</label>
-                            <Input
-                                key={formElement.id}
-                                elementType={formElement.config.elementType}
-                                elementConfig={formElement.config.elementConfig}
-                                value={formElement.value}
-                                invalid={!formElement.config.valid}
-                                changed={(event) =>
-                                    inputChangedHandle(event, formElement.id)
-                                }
-                                touched={formElement.config.touched}
-                            />
+                                <Input
+                                    key={formElement.id}
+                                    elementType={formElement.config.elementType}
+                                    elementConfig={
+                                        formElement.config.elementConfig
+                                    }
+                                    value={formElement.value}
+                                    invalid={!formElement.config.valid}
+                                    changed={(event) =>
+                                        inputChangedHandle(
+                                            event,
+                                            formElement.id
+                                        )
+                                    }
+                                    touched={formElement.config.touched}
+                                />
                             </div>
                         );
                     })}
                 </div>
 
-                <Button
-                    type="button"
-                    btnType="Cancle_Contact"
-                    clicked={props.cancle}
-                >
-                    CANCLE
-                </Button>
-                <Button btnType="Success" disabled={!formIsValid}>
-                    ORDER
-                </Button>
+                <div className={classes.buttonsContainer}>
+                    <Button btnType="Order_Contact" disabled={!formIsValid}>
+                        ORDER
+                    </Button>
+                    <Button
+                        type="button"
+                        btnType="Cancle_Contact"
+                        clicked={props.cancle}
+                    >
+                        CANCLE
+                    </Button>
+                </div>
             </form>
         );
     }

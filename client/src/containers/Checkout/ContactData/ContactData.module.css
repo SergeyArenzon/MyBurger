@@ -2,7 +2,7 @@
     /* margin: auto auto; */
     text-align: center;
     width: 50%;
-    height: 70vh;
+    height: auto;
     box-shadow: 0 2px 3px #ccc;
     background: 1px solid #eee;
     padding: 10px;
@@ -22,6 +22,7 @@
 .ContactData div div {
     margin: 0;
     padding: 0;
+    padding-bottom: 8px;
 }
 
 .ContactData h1 {
@@ -59,9 +60,11 @@
 }
 
 .ContactData div {
-    padding: 0px 20px;
+    padding: 0px 50px;
     display: flex;
     flex-direction: column;
+    flex-basis: 0;
+    padding-bottom: 10px;
 }
 
 /* .Input  {
@@ -105,4 +108,10 @@
 
 .ContactData .InputContainer {
     margin-top: 30px;
+}
+
+
+.ContactData .ButtonsContainer {
+    display: flex;
+    
 }

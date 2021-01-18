@@ -90,3 +90,22 @@ button:disabled {
 .Cancle {
     background: cadetblue;
 }
+
+.Order_Contact {
+    background: #ff7000;
+    color: white;
+    border: 3px #ff7000 solid;
+}
+.Order_Contact:hover {
+    background: white;
+    color: #ff7000;
+}
+.Cancle_Contact {
+    background: black;
+    color: white;
+    border: 3px black solid;
+}
+.Cancle_Contact:hover {
+    background: white;
+    color: black;
+}
