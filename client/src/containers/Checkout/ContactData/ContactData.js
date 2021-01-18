@@ -13,7 +13,7 @@ const contactData = (props) => {
             elementType: "input",
             elementConfig: {
                 type: "text",
-                placeholder: "Your Name",
+                // placeholder: "Your Name",
             },
             value: "",
             validation: {
@@ -26,7 +26,7 @@ const contactData = (props) => {
             elementType: "input",
             elementConfig: {
                 type: "text",
-                placeholder: "Street",
+                // placeholder: "Street",
             },
             value: "",
             validation: {
@@ -35,11 +35,11 @@ const contactData = (props) => {
             valid: false,
             touched: false,
         },
-        zipCode: {
+        phone: {
             elementType: "input",
             elementConfig: {
                 type: "text",
-                placeholder: "Phone",
+                // placeholder: "Phone",
             },
             value: "",
             validation: {
@@ -54,7 +54,7 @@ const contactData = (props) => {
             elementType: "input",
             elementConfig: {
                 type: "email",
-                placeholder: "Your Email",
+                // placeholder: "Your Email",
             },
             value: "",
             validation: {
@@ -149,8 +149,6 @@ const contactData = (props) => {
         setFormIsValid(formIsValid);
     };
 
-
-
     const formElementsArray = [];
     for (let key in orderForm) {
         formElementsArray.push({
@@ -158,10 +156,6 @@ const contactData = (props) => {
             config: orderForm[key],
         });
     }
-
-
-
-   
 
     let form = null;
 
@@ -172,32 +166,38 @@ const contactData = (props) => {
         // form = <Authentication />;
         // props.history.push("/checkout/contact-data");
         form = <Redirect to={"/auth"} />;
-    }
-    else {
-        
+    } else {
         form = (
-            
-            <form  onSubmit={orderHandler}>
+            <form onSubmit={orderHandler}>
                 <h1>Order Info</h1>
-                <div>
+                <div className={classes.InputContainer}>
                     {formElementsArray.map((formElement) => {
-                    return (
-                        <Input
-                            key={formElement.id}
-                            elementType={formElement.config.elementType}
-                            elementConfig={formElement.config.elementConfig}
-                            value={formElement.value}
-                            invalid={!formElement.config.valid}
-                            changed={(event) =>
-                                inputChangedHandle(event, formElement.id)
-                            }
-                            touched={formElement.config.touched}
-                        />
-                    );
-                })}
+                        return (
+                            <div>
+                                <label>{formElement.id}</label>
+                            <Input
+                                key={formElement.id}
+                                elementType={formElement.config.elementType}
+                                elementConfig={formElement.config.elementConfig}
+                                value={formElement.value}
+                                invalid={!formElement.config.valid}
+                                changed={(event) =>
+                                    inputChangedHandle(event, formElement.id)
+                                }
+                                touched={formElement.config.touched}
+                            />
+                            </div>
+                        );
+                    })}
                 </div>
-                
-                <Button type="button" btnType="Cancle_Contact" clicked={props.cancle}>CANCLE</Button>
+
+                <Button
+                    type="button"
+                    btnType="Cancle_Contact"
+                    clicked={props.cancle}
+                >
+                    CANCLE
+                </Button>
                 <Button btnType="Success" disabled={!formIsValid}>
                     ORDER
                 </Button>

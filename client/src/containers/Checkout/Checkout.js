@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSummary";
-import { Route, Redirect } from "react-router-dom";
+import {  Redirect } from "react-router-dom";
 import ContactData from "../Checkout/ContactData/ContactData";
 import { connect } from "react-redux";
 import classes from "./Checkout.module.css";
-import Modal from "../../components/UI/Modal/Modal";
 
 const checkout = (props) => {
     const [contactIsLoaded, setContactIsLoaded] = useState(false);
