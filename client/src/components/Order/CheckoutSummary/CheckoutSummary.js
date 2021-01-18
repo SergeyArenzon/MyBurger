@@ -11,7 +11,7 @@ const checkoutSummary = (props) => {
 
       <div className={classes.Form}>
         <CheckoutForm ingredients={props.ingredients} price={props.price} />
-        <div>
+        <div className={classes.ButtonsContainer}>
           <Button btnType="Checkout_Cancle" clicked={props.cancleClick}>
             CANCLE
           </Button>

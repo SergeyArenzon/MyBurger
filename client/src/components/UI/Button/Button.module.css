@@ -66,6 +66,8 @@ button:disabled {
     /* background: black ; */
     border: 4px rgb(253, 50, 50) solid;
     color: rgb(253, 50, 50);
+
+
 }
 .Checkout_Cancle:hover {
     background: rgb(253, 50, 50);
