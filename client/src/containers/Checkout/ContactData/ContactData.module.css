@@ -1,19 +1,53 @@
 .ContactData {
     /* margin: auto auto; */
     text-align: center;
-    width: 400px;
+    width: 50%;
     height: 70vh;
     box-shadow: 0 2px 3px #ccc;
     background: 1px solid #eee;
     padding: 10px;
     box-sizing: border-box;
     top: 10vh;
-    left: 35vw;
-    margin: auto auto;
+    right: 20vw;
     position: absolute;
     background-color: red;
-    padding: 0px 40px;
+    padding: 0 0;
+    border-radius: 10px;
+    min-width: 305px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
 }
+
+.ContactData h1 {
+    color: white;
+    width: 100%;
+    height: 80px;
+    background: yellow;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+.ContactData h1:before {
+    position: absolute;
+    content: '';
+    background: green;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.ContactData div {
+    padding: 20px 20px;
+}
+
 
 .Input  {
     display: block;

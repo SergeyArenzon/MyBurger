@@ -172,13 +172,15 @@ const contactData = (props) => {
         // form = <Authentication />;
         // props.history.push("/checkout/contact-data");
         form = <Redirect to={"/auth"} />;
-    } else {
+    }
+    else {
         
         form = (
             
-            <form onSubmit={orderHandler}>
+            <form  onSubmit={orderHandler}>
                 <h1>Order Info</h1>
-                {formElementsArray.map((formElement) => {
+                <div>
+                    {formElementsArray.map((formElement) => {
                     return (
                         <Input
                             key={formElement.id}
@@ -193,7 +195,9 @@ const contactData = (props) => {
                         />
                     );
                 })}
-                <Button type="button">CANCLE</Button>
+                </div>
+                
+                <Button type="button" btnType="Cancle_Contact" clicked={props.cancle}>CANCLE</Button>
                 <Button btnType="Success" disabled={!formIsValid}>
                     ORDER
                 </Button>
