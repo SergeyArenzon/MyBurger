@@ -29,6 +29,7 @@ const orders = (props) => {
                     name={order.name}
                     email={order.email}
                     price={order.price}
+                    createdAt={order.createdAt}
                   />
                 </li>
               );

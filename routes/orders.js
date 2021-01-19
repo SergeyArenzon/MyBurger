@@ -15,6 +15,7 @@ const auth = require("../middleware/auth");
 router.post("/add", auth, (req, res) => {
     console.log(req.body);
     const newOrder = new Order(req.body);
+    newOrder['createdAt'] = Date.now();
     newOrder
         .save()
         .then(() => res.json("Order added!"))
@@ -29,6 +30,7 @@ router.get("/", (req, res) => {
             console.log(err);
         } else {
             console.log(result);
+
             res.json(result);
         }
     });

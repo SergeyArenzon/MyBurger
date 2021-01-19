@@ -7,6 +7,7 @@ const orderSchema = new Schema({
     ingredients: Object,
     orderData: Object,
     price: Number,
+    createdAt: Date
 });
 
 const Order = mongoose.model("orders", orderSchema);

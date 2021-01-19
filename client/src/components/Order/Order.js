@@ -34,6 +34,7 @@ const order = (props) => {
             <p>Ingredients: {ingredientOutput}</p>
             <p>
                 Price: <strong>{props.price}</strong>
+                CreatedAt {props.createdAt}
             </p>
         </div>
     );
