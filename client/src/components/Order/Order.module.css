@@ -1,47 +1,43 @@
 .Order {
-  width: 100%;
+  width: 100px;
+  height: 100px;
   border: 1px solid #eee;
   box-shadow: 0 2px 3px;
   padding: 10px;
   margin: 10px auto;
   box-sizing: border-box;
   background: white;
-  border-radius: 25px;
+  border-radius: 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-
+  flex-direction: column;
   
+  position: relative;
+  flex-wrap: wrap;
+
 }
 
-.Order:after {
+
+.Order .Folded {
   position: absolute;
-  content: 'i';
-  height: 30px;
-  width: 30px;
-  top: 35px;
-  right: -17px;
-  background: black;
-  border-radius: 25px ;
-  cursor: pointer;
-  transition: all 0.2s linear ;
-  color: white;
+  height: 400px;
+  width: 400px;
+  background: white;
+  top: -1px;
+  left: -1px;
+  border-radius: 50px;
+  transition: all 0.4s ease-out, border-radius 0s;
+  z-index: 5;
 }
-.Order:hover:after {
-  width: 100px;
-  top: 35px;
-  right: -87px;
-  transition: all 0.2s linear ;
-  background: black;
-  color: white;
-  box-shadow:0 2px 3px black ;
+
+.DisplayNone {
+  display: none;
 }
+
 
 .Order .Ings {
  
   background-color: chartreuse;
 }
 .Order .Ings p {
-
+ 
 }

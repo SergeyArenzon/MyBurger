@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Order.module.css";
 
 const order = (props) => {
+    const [fold, setFold] = useState(false);
+
     const ingredients = [];
     for (let ingredientName in props.ingredients) {
         ingredients.push({
@@ -27,25 +29,47 @@ const order = (props) => {
                 </span>
             );
         }
+        return null;
     });
 
+    const foldHandler = () => {
+        setFold(!fold);
+    };
+
+    let foldShow = classes.DisplayNone;
+
+    if (fold) {
+        foldShow = classes.Folded;
+    }
+
     return (
-        <div className={classes.Order}>
-            <div className={classes.Ings}>
+        <div className={classes.Order} onClick={foldHandler}>
+            {/* <div className={classes.Ings}>
                 Ingredients:
                 <p>{ingredientOutput}</p>
             </div>
             <div className={classes.Price}>
                 Price: 
                 <p><strong>{props.price}</strong></p>
-            </div>
-            <div className={classes.CreatedAt}>
-                CreatedAt:
+            </div> */}
+            {/* <div className={classes.CreatedAt}>
+                Date:
                 <p>{props.createdAt}</p>
-            </div>
+            </div>  */}
             <div className={classes.Name}>
                 Ordered Name: <p>{props.name}</p>
             </div>
+
+            <div className={foldShow}>
+                <div>
+                    <div className={classes.CreatedAt}>
+                        Date:
+                        <p>{props.createdAt}</p>
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
     );
 };
