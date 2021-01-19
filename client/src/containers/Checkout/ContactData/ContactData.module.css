@@ -8,7 +8,9 @@
     padding: 10px;
     box-sizing: border-box;
     top: 10vh;
-    right: 20vw;
+    /* right: 40vw; */
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
     background-color: rgb(255, 255, 255);
     padding: 0 0;
