@@ -3,6 +3,7 @@ import classes from "./Order.module.css";
 
 const order = (props) => {
     const [fold, setFold] = useState(false);
+    const [foldOpened, setFoldOpene] = useState(false);
 
     const ingredients = [];
     for (let ingredientName in props.ingredients) {
@@ -36,7 +37,7 @@ const order = (props) => {
         setFold(!fold);
     };
 
-    let foldShow = classes.DisplayNone;
+    let foldShow = null;
 
     if (fold) {
         foldShow = classes.Folded;
@@ -44,32 +45,28 @@ const order = (props) => {
 
     return (
         <div className={classes.Order} onClick={foldHandler}>
-            {/* <div className={classes.Ings}>
-                Ingredients:
-                <p>{ingredientOutput}</p>
-            </div>
-            <div className={classes.Price}>
-                Price: 
-                <p><strong>{props.price}</strong></p>
-            </div> */}
-            {/* <div className={classes.CreatedAt}>
-                Date:
-                <p>{props.createdAt}</p>
-            </div>  */}
             <div className={classes.Name}>
                 Ordered Name: <p>{props.name}</p>
             </div>
 
             <div className={foldShow}>
-                <div>
+                <div className={!foldShow ? classes.DisplayNone : null}>
                     <div className={classes.CreatedAt}>
                         Date:
                         <p>{props.createdAt}</p>
                     </div>
+                    <div className={classes.Price}>
+                        Price:
+                        <p>
+                            <strong>{props.price}</strong>
+                        </p>
+                    </div>
+                    <div className={classes.Ings}>
+                        Ingredients:
+                        <p>{ingredientOutput}</p>
+                    </div>
                 </div>
             </div>
-
-            
         </div>
     );
 };

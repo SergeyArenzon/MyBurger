@@ -10,7 +10,6 @@
   border-radius: 50px;
   display: flex;
   flex-direction: column;
-  
   position: relative;
   flex-wrap: wrap;
 
@@ -25,7 +24,7 @@
   top: -1px;
   left: -1px;
   border-radius: 50px;
-  transition: all 0.4s ease-out, border-radius 0s;
+  transition: all 0.3s ease-out, border-radius 0s;
   z-index: 5;
 }
 

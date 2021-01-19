@@ -69,7 +69,7 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { returnErrors } from "./error";
-
+import {fetchOrders} from './order';
 
 let proxy = '';
 if(process.env.NODE_ENV === "development") {
@@ -157,7 +157,7 @@ export const logout = () => {
 export const loadUser = () => (dispatch, getState) => {
     // User loading
     dispatch({ type: actionTypes.USER_LOADING });
-
+    
     axios
         .get(proxy + "/auth/user", tokenConfig(getState))
         .then((res) => {
@@ -165,8 +165,12 @@ export const loadUser = () => (dispatch, getState) => {
                 type: actionTypes.USER_LOADED,
                 payload: res.data,
             });
+
+            // Fetch order on startup
+            dispatch(fetchOrders());
         })
         .catch((err) => {
+
             dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({ type: actionTypes.AUTH_ERROR });
         });
