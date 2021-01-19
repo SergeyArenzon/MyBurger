@@ -26,7 +26,7 @@ const orders = (props) => {
                   <Order
                     ingredients={order.ingredients}
                     address={order.address}
-                    name={order.name}
+                    name={order.orderData.name}
                     email={order.email}
                     price={order.price}
                     createdAt={order.createdAt}

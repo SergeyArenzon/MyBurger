@@ -7,4 +7,41 @@
   box-sizing: border-box;
   background: white;
   border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+
+  
+}
+
+.Order:after {
+  position: absolute;
+  content: 'i';
+  height: 30px;
+  width: 30px;
+  top: 35px;
+  right: -17px;
+  background: black;
+  border-radius: 25px ;
+  cursor: pointer;
+  transition: all 0.2s linear ;
+  color: white;
+}
+.Order:hover:after {
+  width: 100px;
+  top: 35px;
+  right: -87px;
+  transition: all 0.2s linear ;
+  background: black;
+  color: white;
+  box-shadow:0 2px 3px black ;
+}
+
+.Order .Ings {
+ 
+  background-color: chartreuse;
+}
+.Order .Ings p {
+
 }

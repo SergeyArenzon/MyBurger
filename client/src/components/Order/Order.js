@@ -31,11 +31,21 @@ const order = (props) => {
 
     return (
         <div className={classes.Order}>
-            <p>Ingredients: {ingredientOutput}</p>
-            <p>
-                Price: <strong>{props.price}</strong>
-                CreatedAt {props.createdAt}
-            </p>
+            <div className={classes.Ings}>
+                Ingredients:
+                <p>{ingredientOutput}</p>
+            </div>
+            <div className={classes.Price}>
+                Price: 
+                <p><strong>{props.price}</strong></p>
+            </div>
+            <div className={classes.CreatedAt}>
+                CreatedAt:
+                <p>{props.createdAt}</p>
+            </div>
+            <div className={classes.Name}>
+                Ordered Name: <p>{props.name}</p>
+            </div>
         </div>
     );
 };
