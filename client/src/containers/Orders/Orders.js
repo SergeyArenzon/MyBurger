@@ -10,16 +10,34 @@ const orders = (props) => {
     const [foldListener, setFoldListener] = useState(null);
 
     useEffect(() => {
-      console.log('Orders[]')
+        console.log("Orders[]");
         if (props.auth.isAuthenticated) {
-            // props.onFetchOrders();
-            // console.log(props.orders)
+            let orderListener = [];
+            for (let i = 0; i < props.orders.length; i++) {
+                orderListener.push({
+                    orderId: props.orders[i]._id,
+                    isExpend: false,
+                });
+            }
+            setFoldListener(orderListener);
         }
     }, []);
 
+    const foldListenerHandler = (id, state) => {
+        if (!state) {
+            let orderListener = [];
+            for (let i = 0; i < props.orders.length; i++) {
+                orderListener.push({
+                    orderId: props.orders[i]._id,
+                    isExpend: false,
+                });
+            }
 
-   
+            orderListener['orderId'] = true;
+            setFoldListener(orderListener);
+        } 
 
+    }
     let orders = <Spinner />;
     if (props.auth.isAuthenticated) {
         if (!props.loading) {
@@ -36,6 +54,9 @@ const orders = (props) => {
                                         email={order.email}
                                         price={order.price}
                                         createdAt={order.createdAt}
+                                        orderId= {order._id}
+                                        foldListener={foldListener}
+                                        foldListenerHandler={foldListenerHandler}
                                     />
                                 </li>
                             );

@@ -3,7 +3,6 @@ import classes from "./Order.module.css";
 
 const order = (props) => {
     const [fold, setFold] = useState(false);
-    const [foldOpened, setFoldOpene] = useState(false);
 
     const ingredients = [];
     for (let ingredientName in props.ingredients) {
@@ -43,6 +42,7 @@ const order = (props) => {
         foldShow = classes.Folded;
     }
 
+   
     return (
         <div className={classes.Order} onClick={foldHandler}>
             <div className={classes.Name}>
