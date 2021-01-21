@@ -31,3 +31,8 @@
   align-items: center;
 }
 
+@media (max-width: 495px) {
+  .Order {
+    width: 90vw;
+  }
+}

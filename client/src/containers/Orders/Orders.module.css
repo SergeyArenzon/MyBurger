@@ -10,5 +10,12 @@
 .Orders {
   /* background: chartreuse; */
   width: 100vw;
+  margin-top: 20px;
 }
 
+@media (max-width: 495px) {
+  .Orders ul{
+    width: 100vw;
+    width: auto;
+  }
+}

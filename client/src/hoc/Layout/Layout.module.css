@@ -3,6 +3,7 @@
     display: flex;
     height: 95%;
     /* background: linear-gradient(74deg, rgb(0, 0, 0) 37%, rgb(252, 159, 0) 29%); */
+    overflow-x: hidden;
 }
 
 .Footer {
