@@ -19,13 +19,13 @@ const order = (props) => {
                     key={ig.name}
                     style={{
                         textTransform: "capitalize",
-                        display: "inline",
-                        margin: "0 8px",
-                        border: "1px solid #ccc",
-                        padding: "5px",
+                        display: "block",
+                        // margin: "0 8px",
+                        // border: "1px solid #ccc",
+                        // padding: "5px",
                     }}
                 >
-                    {ig.name} ({ig.amount})
+                    {ig.name} x{ig.amount}
                 </span>
             );
         }
@@ -37,25 +37,36 @@ const order = (props) => {
     };
 
     return (
-        <div className={[classes.Order, fold ? classes.Def : null ].join(' ')} onClick={foldHandler}>
+        <div
+            className={[classes.Order, fold ? classes.Def : null].join(" ")}
+            onClick={foldHandler}
+        >
             <div className={classes.Name}>
-                Ordered Name: <strong>{props.name}</strong>
+                Ordered By: <strong>{props.name}</strong>
             </div>
 
-            <div >
-                <div className={classes.CreatedAt}>
-                    Date: <strong>{props.createdAt}</strong>
-                    
+            <div className={classes.CreatedAt}>
+                Date: <strong>{props.createdAt}</strong>
+            </div>
+            <br />
+            <div className={classes.Expand}>
+                <div>
+                    Price:<div><strong>{props.price}</strong></div>
                 </div>
-                <div className={classes.Price}>
-                    Price:
-                    
-                        <strong>{props.price}</strong>
-                    
+                <div>
+                    Street: <div><strong>{props.orderData.street}</strong></div>
                 </div>
-                <div className={classes.Ings}>
-                    Ingredients:
-                    <div>{ingredientOutput}</div>
+                <div>
+                    Phone: <div><strong>{props.orderData.phone}</strong></div>
+                </div>
+                <div>
+                    Email: <div><strong>{props.orderData.email}</strong></div>
+                </div>
+                <div>
+                    Delivery: <div><strong>{props.orderData.deliveryMethod}</strong></div>
+                </div>
+                <div>
+                    Ingredients: <div>{ingredientOutput}</div>
                 </div>
             </div>
         </div>

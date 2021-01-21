@@ -20,5 +20,14 @@
 
 .Def {
   transition: max-height 0.5s linear;
-  max-height: 200px;
+  max-height: 300px;
 }
+
+.Expand {
+  background-color: rgb(221, 221, 221);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+

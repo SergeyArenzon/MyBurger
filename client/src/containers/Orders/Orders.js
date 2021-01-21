@@ -57,6 +57,7 @@ const orders = (props) => {
                                         orderId= {order._id}
                                         foldListener={foldListener}
                                         foldListenerHandler={foldListenerHandler}
+                                        orderData={order.orderData}
                                     />
                                 </li>
                             );
