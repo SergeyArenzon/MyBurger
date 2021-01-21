@@ -23,13 +23,6 @@ html {
 
 #root {
   height: inherit;
-  /* background: linear-gradient(
-    79deg,
-    rgba(0, 0, 0, 1) 40%,
-    rgba(0, 0, 0, 1) 35.2%,
-    rgba(255, 164, 0, 1) 35.3%
-  ); */
-
   background: linear-gradient(81deg, rgba(0,0,0,1) 37%, rgba(255,112,0,1) 37.1%);
   overflow : auto
 }
@@ -41,6 +34,6 @@ code {
 
 @media(max-width: 500px) {
   #root {
-    background: linear-gradient(81deg, rgba(0,0,0,1) 37%, rgb(255, 136, 45) 37.1%);
+    background: linear-gradient(81deg, rgba(0,0,0,1) 37%, rgb(255, 149, 67) 37.1%);
   }
 }
