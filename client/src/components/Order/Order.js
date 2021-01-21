@@ -36,35 +36,26 @@ const order = (props) => {
         setFold(!fold);
     };
 
-    let foldShow = null;
-
-    if (fold) {
-        foldShow = classes.Folded;
-    }
-
-   
     return (
-        <div className={classes.Order} onClick={foldHandler}>
+        <div className={[classes.Order, fold ? classes.Def : null ].join(' ')} onClick={foldHandler}>
             <div className={classes.Name}>
-                Ordered Name: <p>{props.name}</p>
+                Ordered Name: <strong>{props.name}</strong>
             </div>
 
-            <div className={foldShow}>
-                <div className={!foldShow ? classes.DisplayNone : null}>
-                    <div className={classes.CreatedAt}>
-                        Date:
-                        <p>{props.createdAt}</p>
-                    </div>
-                    <div className={classes.Price}>
-                        Price:
-                        <p>
-                            <strong>{props.price}</strong>
-                        </p>
-                    </div>
-                    <div className={classes.Ings}>
-                        Ingredients:
-                        <p>{ingredientOutput}</p>
-                    </div>
+            <div >
+                <div className={classes.CreatedAt}>
+                    Date: <strong>{props.createdAt}</strong>
+                    
+                </div>
+                <div className={classes.Price}>
+                    Price:
+                    
+                        <strong>{props.price}</strong>
+                    
+                </div>
+                <div className={classes.Ings}>
+                    Ingredients:
+                    <div>{ingredientOutput}</div>
                 </div>
             </div>
         </div>
