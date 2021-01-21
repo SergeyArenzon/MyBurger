@@ -13,7 +13,7 @@ const orders = (props) => {
       console.log('Orders[]')
         if (props.auth.isAuthenticated) {
             // props.onFetchOrders();
-            console.log(props.orders)
+            // console.log(props.orders)
         }
     }, []);
 

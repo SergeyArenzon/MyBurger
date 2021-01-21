@@ -78,6 +78,7 @@ if(process.env.NODE_ENV === "development") {
 
 export const login = ({ email, password }) => (dispatch) => {
     dispatch({ type: actionTypes.USER_LOADING });
+    
     const config = {
         headers: {
             "Content-Type": "application/json",
@@ -99,6 +100,7 @@ export const login = ({ email, password }) => (dispatch) => {
                 type: actionTypes.LOGIN_SUCCESS,
                 payload: fixedData,
             });
+            dispatch(fetchOrders());
         })
         .catch((err) => {
             dispatch(
@@ -112,6 +114,8 @@ export const login = ({ email, password }) => (dispatch) => {
                 type: actionTypes.LOGIN_FAIL,
             });
         });
+
+
 };
 
 export const register = ({ name, email, password }) => (dispatch) => {
