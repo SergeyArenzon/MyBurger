@@ -33,7 +33,14 @@ html {
   background: linear-gradient(81deg, rgba(0,0,0,1) 37%, rgba(255,112,0,1) 37.1%);
   overflow : auto
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media(max-width: 500px) {
+  #root {
+    background: linear-gradient(81deg, rgba(0,0,0,1) 37%, rgb(255, 136, 45) 37.1%);
+  }
 }
