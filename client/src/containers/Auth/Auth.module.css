@@ -53,6 +53,10 @@
     font-weight: bold;
 }
 
+.Auth button {
+    margin: auto;
+}
+
 .Auth .Title {
     text-align: left;
     border-bottom: 7px #ff7000 solid;

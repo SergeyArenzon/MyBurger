@@ -15,13 +15,14 @@
     width: 100%;
     box-sizing: border-box;
     display: block;
+    color: white; 
 
 }
 
 
 .NavigationItem :active {
     /* color: inherit; */
-    
+    /* color: white; */
 }
 
 @media(min-width: 500px) {
