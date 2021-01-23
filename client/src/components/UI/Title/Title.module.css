@@ -1,6 +1,6 @@
 .Title {
     font-size: 10rem;
-    font-weight: 700;
+    /* font-weight: 700; */
     text-transform: uppercase;
     background: url("../../../assets/images/burger.jpg"); /* Here you can use an image bg */
     background-repeat: no-repeat;
@@ -11,12 +11,7 @@
     margin-bottom: 50px;
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
     -webkit-background-clip: text; /* This will bring bg shape according to text*/
-    -webkit-text-fill-color: rgba(
-        0,
-        0,
-        0,
-        0.185
-    ); /* This will make text color transparent */
+    -webkit-text-fill-color: rgba(0, 0, 0, 0.438); /* This will make text color transparent */
     color: rgba(
         0,
         0,
