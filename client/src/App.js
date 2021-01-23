@@ -8,7 +8,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Auth from "./containers/Auth/Auth";
 import { loadUser } from "./store/actions/auth";
 import { connect } from "react-redux";
-import * as actions from "./store/actions/order";
 
 const Orders = React.lazy(() => {
     return import("./containers/Orders/Orders");
