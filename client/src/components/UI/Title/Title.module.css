@@ -6,11 +6,17 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    font-family: 'EricaOne';
+    font-family: "EricaOne";
     line-height: 0.85;
+    margin-bottom: 50px;
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
     -webkit-background-clip: text; /* This will bring bg shape according to text*/
-    -webkit-text-fill-color: rgba(0, 0, 0, 0.185); /* This will make text color transparent */
+    -webkit-text-fill-color: rgba(
+        0,
+        0,
+        0,
+        0.185
+    ); /* This will make text color transparent */
     color: rgba(
         0,
         0,
@@ -20,21 +26,45 @@
     cursor: default;
 }
 
-
 .Title p {
     padding: 0;
     margin: 0;
 }
 
-.Title p:first-child{
+.Title p:first-child {
     /* padding-left: 20px; */
     font-size: 8rem;
     text-align: center;
 }
-.Title p:nth-child(2){
+.Title p:nth-child(2) {
     /* padding-left: 40px; */
     font-size: 4rem;
     text-align: center;
+}
 
-    
+@media (max-width: 755px) {
+    .Title {
+        font-size: 7rem;
+        margin-top: 20px;
+    }
+    .Title p:first-child {
+        font-size: 5rem;
+    }
+    .Title p:nth-child(2) {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 587px) {
+    .Title {
+        font-size: 5rem;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .Title p:first-child {
+        font-size: 3rem;
+    }
+    .Title p:nth-child(2) {
+        font-size: 2rem;
+    }
 }
