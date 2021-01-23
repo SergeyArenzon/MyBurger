@@ -6,6 +6,7 @@ import BuildControls from "./../../components/Burger/BuildControls/BuildControls
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import { connect } from "react-redux";
+import Title from '../../components/UI/Title/Title';
 import * as actions from "../../store/actions/index";
 
 const burgerBuilder = (props) => {
@@ -82,6 +83,7 @@ const burgerBuilder = (props) => {
 
     return (
         <Aux>
+            
             <Modal show={purchasing} modalClosed={purchaseCancleHandler}>
                 {orderSummary}
             </Modal>

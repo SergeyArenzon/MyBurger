@@ -47,7 +47,8 @@
 }
 
 .AddIngsText {
-  color: rgb(99, 60, 60);
+  color: white;
+  font-family: 'DancingScript-VariableFont_wght';
 }
 
 Burger::-webkit-scrollbar {

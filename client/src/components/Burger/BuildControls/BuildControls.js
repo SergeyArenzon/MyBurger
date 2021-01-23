@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./BuildControls.module.css";
 import BuildControl from "./BuildControl/BuildControl";
 import HomeButton from "../../UI/Button/HomeButton";
+import Title from '../../UI/Title/Title';
 
 const controls = [
     { label: "Mayo", type: "mayo" },
@@ -21,6 +22,7 @@ const buildControls = (props) => {
 
     return (
         <div className={classes.BuildControls}>
+            <Title>BUILD <p>YOUR</p> <p>BURGER</p></Title>
             <div>
                 Price: <strong>{fixedPrice}</strong>
             </div>

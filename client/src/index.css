@@ -9,6 +9,18 @@
   src: local("DancingScript-VariableFont_wght"),
     url(./assets/fonts/DancingScript-VariableFont_wght.ttf) format("truetype");
 }
+@font-face {
+  font-family: "EricaOne";
+  src: local("EricaOne"),
+    url(./assets/fonts/EricaOne-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "LuckiestGuy";
+  src: local("LuckiestGuy"),
+    url(./assets/fonts/LuckiestGuy-Regular.ttf) format("truetype");
+}
+
+
 body {
   height: 100%;
   margin: 0;
