@@ -13,9 +13,19 @@
   transition: max-height 0.2s ease-in;
   max-height: 0;
   overflow: hidden;
+  position: relative;
 
 }
 
+
+.Order i {
+  position: absolute;
+  top: 9px;
+  color: black;
+  padding-left: 5px;
+  left: 0;
+  /* border: 1px solid black; */
+}
 
 
 .Def {
