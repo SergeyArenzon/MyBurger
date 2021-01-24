@@ -21,7 +21,6 @@ const contactData = (props) => {
             },
             valid: false,
             touched: false,
-            icon: 'fa fa-user-edit'
         },
         street: {
             elementType: "input",
@@ -157,7 +156,13 @@ const contactData = (props) => {
               return (<i className="fa fa-user-edit"></i>);
 
             case 'street':
-                return (<i class="fa fa-home"></i>)  
+                return (<i className="fa fa-home"></i>); 
+            case 'phone':
+                return (<i className="fa fa-phone-alt"></i>);
+            case 'email':
+                return (<i className="fa fa-envelope"></i>);
+            case 'deliveryMethod':
+                return (<i className="fa fa-car-side"></i>);
             default:
               return null;
           } 
