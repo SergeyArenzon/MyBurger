@@ -42,31 +42,36 @@ const order = (props) => {
             onClick={foldHandler}
         >
             <div className={classes.Name}>
-                Ordered By: <strong>{props.name}</strong>
+                <strong>Ordered By</strong> {props.name}
             </div>
 
             <div className={classes.CreatedAt}>
-                Date: <strong>{props.createdAt}</strong>
+                <strong>Date</strong>
+                {props.createdAt}
             </div>
             <br />
             <div className={classes.Expand}>
                 <div>
-                    Price:<div><strong>{props.price}</strong></div>
+                    <strong>Price</strong>
+                    <div>{props.price}</div>
                 </div>
                 <div>
-                    Street: <div><strong>{props.orderData.street}</strong></div>
+                    <strong>Street</strong> <div>{props.orderData.street}</div>
                 </div>
                 <div>
-                    Phone: <div><strong>{props.orderData.phone}</strong></div>
+                    <strong>Phone</strong> <div>{props.orderData.phone}</div>
                 </div>
                 <div>
-                    Email: <div><strong>{props.orderData.email}</strong></div>
+                    <strong>Email</strong> <div>{props.orderData.email}</div>
                 </div>
                 <div>
-                    Delivery: <div><strong>{props.orderData.deliveryMethod}</strong></div>
+                    <strong>Delivery</strong>{" "}
+                    <div>
+                        <strong>{props.orderData.deliveryMethod}</strong>
+                    </div>
                 </div>
                 <div>
-                    Ingredients: <div>{ingredientOutput}</div>
+                    <strong>Ingredients</strong> <div>{ingredientOutput}</div>
                 </div>
             </div>
         </div>
