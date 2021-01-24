@@ -53,7 +53,7 @@ const order = (props) => {
             <div className={classes.Expand}>
                 <div>
                     <strong>Price</strong>
-                    <div>{props.price}</div>
+                    <div>{props.price} &#36;</div>
                 </div>
                 <div>
                     <strong>Street</strong> <div>{props.orderData.street}</div>
