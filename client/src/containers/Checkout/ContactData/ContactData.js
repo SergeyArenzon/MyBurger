@@ -150,6 +150,19 @@ const contactData = (props) => {
         setFormIsValid(formIsValid);
     };
 
+
+    const iconHandler = (itemName) => {
+        switch(itemName) {
+            case 'name':
+              return (<i className="fa fa-user-edit"></i>);
+
+            case 'street':
+                return (<i class="fa fa-home"></i>)  
+            default:
+              return null;
+          } 
+    }
+
     const formElementsArray = [];
     for (let key in orderForm) {
         formElementsArray.push({
@@ -174,10 +187,9 @@ const contactData = (props) => {
                 <div className={classes.InputContainer}>
                     {formElementsArray.map((formElement) => {
                         return (
-                            <div>
+                            <div className={classes.InputContainer}>
                                 <label>{formElement.id}</label>
-                                <i className={formElement.icon}></i>
-
+                                {iconHandler(formElement.id)}
                                 <Input
                                     key={formElement.id}
                                     elementType={formElement.config.elementType}
