@@ -34,7 +34,7 @@
         align-items: center;
         /* padding-left: 5px; */
         width: 85px;
-        justify-content: flex-end;
+        justify-content: space-around;
     }
     
     .NavigationItem a {
