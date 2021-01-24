@@ -126,3 +126,9 @@
     left: 10px;
     transform: translateY(-50%);
 }
+
+@media (max-width: 500px ){
+    .ContactData {
+        top: 5vh;
+    }
+} 
