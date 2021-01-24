@@ -12,10 +12,11 @@
     right: 0;
     background: transparent;
     text-align: right;
-    bottom: 15px;
-    padding-right: 10px;
+    bottom: 0;
+    padding-right: 2px;
     font-style: italic;
     font-size: 0.8rem;
+
 }
 
 
