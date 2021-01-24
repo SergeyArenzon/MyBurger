@@ -21,6 +21,7 @@ const contactData = (props) => {
             },
             valid: false,
             touched: false,
+            icon: 'fa fa-user-edit'
         },
         street: {
             elementType: "input",
@@ -175,6 +176,8 @@ const contactData = (props) => {
                         return (
                             <div>
                                 <label>{formElement.id}</label>
+                                <i className={formElement.icon}></i>
+
                                 <Input
                                     key={formElement.id}
                                     elementType={formElement.config.elementType}
@@ -190,7 +193,8 @@ const contactData = (props) => {
                                         )
                                     }
                                     touched={formElement.config.touched}
-                                />
+                                >
+                                </Input>
                             </div>
                         );
                     })}

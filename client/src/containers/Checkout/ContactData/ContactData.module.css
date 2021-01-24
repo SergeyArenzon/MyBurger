@@ -117,3 +117,12 @@
     display: flex;
 
 }
+
+.ContactData i {
+    color: black;
+    z-index: 1;
+    position: absolute;
+    top: 42%;
+    left: 10px;
+    transform: translateY(-50%);
+}

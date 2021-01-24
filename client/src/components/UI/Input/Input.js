@@ -62,6 +62,7 @@ const input = (props) => {
 
     return (
         <div className={classes.Input}>
+            {props.children}
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
             {props.label === 'email' ? <i class="fa fa-envelope" ></i> : null }
