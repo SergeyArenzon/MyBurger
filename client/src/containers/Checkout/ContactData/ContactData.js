@@ -179,11 +179,8 @@ const contactData = (props) => {
     let form = null;
 
     if (props.loading) {
-        console.log("---------------spinner-------------------");
         form = <Spinner />;
     } else if (!props.auth.isAuthenticated) {
-        // form = <Authentication />;
-        // props.history.push("/checkout/contact-data");
         form = <Redirect to={"/auth"} />;
     } else {
         form = (

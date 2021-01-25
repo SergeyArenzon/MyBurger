@@ -8,6 +8,8 @@ import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 
+
+
 const burgerBuilder = (props) => {
     // state = {
     //   purchasable: false,
@@ -82,7 +84,6 @@ const burgerBuilder = (props) => {
 
     return (
         <Aux>
-            
             <Modal show={purchasing} modalClosed={purchaseCancleHandler}>
                 {orderSummary}
             </Modal>
