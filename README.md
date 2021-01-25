@@ -1,10 +1,10 @@
 # MyBurger
 ![](./readmeFiles/home-page.png)
 
-
-![](./readmeFiles/login.png =250x250)
-
-
+<img src="./readmeFiles/login.png" alt="drawing" width="200"/>
+<img src="./readmeFiles/summary.png" alt="drawing" width="200"/>
+<img src="./readmeFiles/orders.png" alt="drawing" width="200"/>
+<img src="./readmeFiles/contact.png" alt="drawing" width="200"/>
 
 ### Live Demo
 https://my-burger-market.herokuapp.com/
