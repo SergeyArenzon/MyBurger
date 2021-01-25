@@ -1,5 +1,5 @@
 # MyBurger
-
+![Home Screen](./readmeFiles/home.png)
 
 
 ### Live Demo
