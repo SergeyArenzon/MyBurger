@@ -1,10 +1,11 @@
 # MyBurger
 ![](./readmeFiles/home-page.png)
-
-<img src="./readmeFiles/login.png" alt="drawing" width="200"/>
+<div style="display:flex; justify-content: space-between">
+ <img src="./readmeFiles/login.png" alt="drawing" width="200"/>
 <img src="./readmeFiles/summary.png" alt="drawing" width="200"/>
 <img src="./readmeFiles/orders.png" alt="drawing" width="200"/>
 <img src="./readmeFiles/contact.png" alt="drawing" width="200"/>
+  </div>
 
 ### Live Demo
 https://my-burger-market.herokuapp.com/
