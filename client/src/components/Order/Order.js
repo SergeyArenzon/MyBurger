@@ -49,7 +49,7 @@ const order = (props) => {
             className={[classes.Order, fold ? classes.Def : null].join(" ")}
             onClick={foldHandler}
         >
-            <i class="fa fa-hamburger fa-2x"></i>
+            <i className="fa fa-hamburger fa-2x"></i>
             <div className={classes.Name}>
                 <strong>Ordered By</strong> {props.name}
             </div>
