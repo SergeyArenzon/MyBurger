@@ -2,7 +2,7 @@
 ![](./readmeFiles/home-page.png)
 
 
-![](./readmeFiles/login.png | width=100)
+![](./readmeFiles/login.png =250x250)
 
 
 
