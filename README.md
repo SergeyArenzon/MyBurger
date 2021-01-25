@@ -1,6 +1,8 @@
 # MyBurger
-![Home Screen](./readmeFiles/home-page.png)
-![Home Screen](./readmeFiles/login.png=100x20)
+![](./readmeFiles/home-page.png)
+
+
+![](./readmeFiles/login.png | width=100)
 
 
 
