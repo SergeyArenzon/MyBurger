@@ -36,6 +36,14 @@ const order = (props) => {
         setFold(!fold);
     };
 
+
+    const timeHandler = () => {
+        if(props.createdAt) {
+            const date = props.createdAt.slice(0,10);
+            const time = props.createdAt.slice(11,16);
+            return date + ' ' + time;
+        }
+    }
     return (
         <div
             className={[classes.Order, fold ? classes.Def : null].join(" ")}
@@ -47,14 +55,14 @@ const order = (props) => {
             </div>
 
             <div className={classes.CreatedAt}>
-                <strong>Date</strong>
-                {props.createdAt}
+                <strong>Date </strong>
+                {timeHandler()}
             </div>
             <br />
             <div className={classes.Expand}>
                 <div>
                     <strong>Price</strong>
-                    <div>{props.price} &#36;</div>
+                    <div>{props.price}&#36;</div>
                 </div>
                 <div>
                     <strong>Street</strong> <div>{props.orderData.street}</div>

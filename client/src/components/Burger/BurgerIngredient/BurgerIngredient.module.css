@@ -16,7 +16,7 @@
     margin: 2% auto;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transition: all 0.2s ease-out;
+    transition: all 0.2s linear;
     cursor: pointer;
     position: relative;
 }
