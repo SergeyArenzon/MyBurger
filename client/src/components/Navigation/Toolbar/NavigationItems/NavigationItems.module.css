@@ -11,6 +11,13 @@
     
 }
 
+.NavigationItems ul:first-child{
+    padding-right: 15px;
+}
+
+ .BurgerBuilderNav {
+    padding-right: 15px;
+}
 
 @media (min-width: 500px) {
     .NavigationItems {

@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 
 const navigationItems = (props) => {
   return (
-    <ul className={classes.NavigationItems}>
-      <NavigationItem className={classes.burgerBuilderNav} link="/" exact>
+    <ul className={classes.NavigationItems} >
+      
+      <NavigationItem  navType="MyBurger" link="/" exact >
         MyBurger
       </NavigationItem>
       {props.isAuthenticated ? (

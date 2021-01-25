@@ -7,137 +7,163 @@
 .Meat,
 .BreadBottom,
 .BreadTop {
-  min-height: 100px;
-  height: 100px;
-  width: 350px;
-  /* background: linear-gradient(#F08E4A, #e27b36); */
-  /* border-radius: 0 0 30px 30px; */
-  /* box-shadow: inset -15px 0 #c15711; */
-  margin: 2% auto;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  transition: all 0.2s ease-out;
-  cursor: pointer;
-  
+    min-height: 100px;
+    height: 100px;
+    width: 350px;
+    /* background: linear-gradient(#F08E4A, #e27b36); */
+    /* border-radius: 0 0 30px 30px; */
+    /* box-shadow: inset -15px 0 #c15711; */
+    margin: 2% auto;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    position: relative;
 }
-
 .Tomato:hover,
-.Cucumber:hover,
-.Mayo:hover,
-.Lettuce:hover,
-.Onion:hover,
-.Cheese:hover,
-.Meat:hover {
-  box-shadow:  inset 0px -5px 50px #ff6f0054;
-  border-radius: 20px;
-}
+    .Cucumber:hover,
+    .Mayo:hover,
+    .Lettuce:hover,
+    .Onion:hover,
+    .Cheese:hover,
+    .Meat:hover {
+        height: 105px;
+        width: 360px;
+    }
 
 
 .BreadBottom {
-  background-image: url("../../../assets/images/bottom-bread.png");
+    background-image: url("../../../assets/images/bottom-bread.png");
 }
 
 .BreadTop {
-  background-image: url("../../../assets/images/top-bread.png");
+    background-image: url("../../../assets/images/top-bread.png");
 }
 
 .Meat {
-  background-image: url("../../../assets/images/meat.png");
+    background-image: url("../../../assets/images/meat.png");
 }
 
 .Cheese {
-  background-image: url("../../../assets/images/cheese.png");
+    background-image: url("../../../assets/images/cheese.png");
 }
 
 .Onion {
-  background-image: url("../../../assets/images/onion.png");
+    background-image: url("../../../assets/images/onion.png");
 }
 
 .Cucumber {
-  background-image: url("../../../assets/images/cucumber.png");
+    background-image: url("../../../assets/images/cucumber.png");
 }
 
 .Lettuce {
-  background-image: url("../../../assets/images/lettuce.png");
+    background-image: url("../../../assets/images/lettuce.png");
 }
 
 .Mayo {
-  background-image: url("../../../assets/images/mayo.png");
+    background-image: url("../../../assets/images/mayo.png");
 }
 
 .Cucumber {
-  background-image: url("../../../assets/images/cucumber.png");
+    background-image: url("../../../assets/images/cucumber.png");
 }
 .Tomato {
-  background-image: url("../../../assets/images/tomato.png");
+    background-image: url("../../../assets/images/tomato.png");
 }
 
-@media (max-width: 1300px) {
-  .Tomato,
-  .Cucumber,
-  .Mayo,
-  .Lettuce,
-  .Onion,
-  .Cheese,
-  .Meat,
-  .BreadBottom,
-  .BreadTop {
-    height: 60px;
-    width: 80px;
-    min-height: 60px;
-  }
-}
+/* @media (max-width: 1300px) {
+    .Tomato,
+    .Cucumber,
+    .Mayo,
+    .Lettuce,
+    .Onion,
+    .Cheese,
+    .Meat,
+    .BreadBottom,
+    .BreadTop {
+        height: 60px;
+        width: 80px;
+        min-height: 60px;
+    }
+   
+} */
 @media (max-width: 1400px) {
-  .Tomato,
-  .Cucumber,
-  .Mayo,
-  .Lettuce,
-  .Onion,
-  .Cheese,
-  .Meat,
-  .BreadBottom,
-  .BreadTop {
-    height: 80px;
-    min-height: 80px;
-    width: 300px;
-    transition: all 0.2s linear;
-  }
+    .Tomato,
+    .Cucumber,
+    .Mayo,
+    .Lettuce,
+    .Onion,
+    .Cheese,
+    .Meat,
+    .BreadBottom,
+    .BreadTop {
+        height: 80px;
+        min-height: 80px;
+        width: 297px;
+        transition: all 0.2s linear;
+    }
+    .Tomato:hover,
+    .Cucumber:hover,
+    .Mayo:hover,
+    .Lettuce:hover,
+    .Onion:hover,
+    .Cheese:hover,
+    .Meat:hover {
+        height: 85px;
+        width: 302px;
+    }
+    
+   
 }
-
 
 @media (max-width: 1000px) {
-  .Tomato,
-  .Cucumber,
-  .Mayo,
-  .Lettuce,
-  .Onion,
-  .Cheese,
-  .Meat,
-  .BreadBottom,
-  .BreadTop {
-    height: 60px;
-    width: 200px;
-    min-height: 60px;
-  }
+    .Tomato,
+    .Cucumber,
+    .Mayo,
+    .Lettuce,
+    .Onion,
+    .Cheese,
+    .Meat,
+    .BreadBottom,
+    .BreadTop {
+        height: 60px;
+        width: 200px;
+        min-height: 60px;
+    }
+    .Tomato:hover,
+    .Cucumber:hover,
+    .Mayo:hover,
+    .Lettuce:hover,
+    .Onion:hover,
+    .Cheese:hover,
+    .Meat:hover {
+        height: 67px;
+        width: 208px;
+    }
 }
 
-
-
-
 @media (max-width: 700px) {
-  .Tomato,
-  .Cucumber,
-  .Mayo,
-  .Lettuce,
-  .Onion,
-  .Cheese,
-  .Meat,
-  .BreadBottom,
-  .BreadTop {
-    height: 30px;
-    width: 80px;
-    min-height: 30px;
-  }
-
-  
+    .Tomato,
+    .Cucumber,
+    .Mayo,
+    .Lettuce,
+    .Onion,
+    .Cheese,
+    .Meat,
+    .BreadBottom,
+    .BreadTop {
+        height: 30px;
+        width: 80px;
+        min-height: 30px;
+    }
+    .Tomato:hover,
+    .Cucumber:hover,
+    .Mayo:hover,
+    .Lettuce:hover,
+    .Onion:hover,
+    .Cheese:hover,
+    .Meat:hover {
+        height: 35px;
+        width: 85px;
+    }
 }
