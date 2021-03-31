@@ -25,7 +25,7 @@ const layout = props =>{
                 />
 
                 <main className={classes.Content}>{props.children}</main>
-                <div className={classes.Footer}> Created By Sergey Arenzon 2021&copy;</div>
+                <div className={classes.Footer}>Sergey Arenzon 2021&copy;</div>
             </Aux>
         );
 }
