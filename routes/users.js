@@ -37,7 +37,7 @@ router.route('/add').post((req, res) => {
                                 id: user.id,
                             },
                             jwtSecretKey,
-                            { expiresIn: '30s' },
+                            { expiresIn: '30' },
                             (err, token) => {
                                 if (err) {
                                     throw err;
