@@ -22,7 +22,7 @@ router.post("/add", auth, (req, res) => {
         .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.get("/",  (req, res) => {
+router.get("/", auth, (req, res) => {
     const userId = req.query.userId;
     // console.log(req)
     Order.find({ userId: userId }, (err, result) => {
